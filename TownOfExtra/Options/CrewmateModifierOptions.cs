@@ -17,37 +17,6 @@ public sealed class CrewmateModifierOptions : AbstractOptionGroup
     public override uint GroupPriority => 2;
 
     /*----------------------
-         HEAVY WORKLOAD
-    ----------------------*/
-
-    [ModdedNumberOption("Heavy Workload Amount", 0, 5)]
-    public float HeavyWorkloadAmount { get; set; } = 0;
-
-    public ModdedNumberOption HeavyWorkloadChance { get; } =
-        new("Heavy Workload Chance", 50f, 0f, 100f, 10f, MiraNumberSuffixes.Percent)
-        {
-            Visible = () => OptionGroupSingleton<CrewmateModifierOptions>.Instance.HeavyWorkloadAmount > 0
-        };
-
-    public ModdedNumberOption HeavyWorkloadExtraCommonTasks { get; } =
-        new("Extra Common Tasks", 1f, 0f, 2f, 1f, MiraNumberSuffixes.None)
-        {
-            Visible = () => OptionGroupSingleton<CrewmateModifierOptions>.Instance.HeavyWorkloadAmount > 0
-        };
-
-    public ModdedNumberOption HeavyWorkloadExtraLongTasks { get; } =
-        new("Extra Long Tasks", 1f, 0f, 2f, 1f, MiraNumberSuffixes.None)
-        {
-            Visible = () => OptionGroupSingleton<CrewmateModifierOptions>.Instance.HeavyWorkloadAmount > 0
-        };
-
-    public ModdedNumberOption HeavyWorkloadExtraShortTasks { get; } =
-        new("Extra Short Tasks", 2f, 0f, 3f, 1f, MiraNumberSuffixes.None)
-        {
-            Visible = () => OptionGroupSingleton<CrewmateModifierOptions>.Instance.HeavyWorkloadAmount > 0
-        };
-
-    /*----------------------
              ROUTINE
     ----------------------*/
 
@@ -70,24 +39,6 @@ public sealed class CrewmateModifierOptions : AbstractOptionGroup
         new("Speed Boost Duration", 5f, 5f, 20f, 2.5f, MiraNumberSuffixes.Seconds)
         {
             Visible = () => OptionGroupSingleton<CrewmateModifierOptions>.Instance.RoutineAmount > 0
-        };
-    
-    /*----------------------
-             BRITTLE
-    ----------------------*/
-
-    [ModdedNumberOption("Brittle Amount", 0, 5)]
-    public float BrittleAmount { get; set; } = 0;
-
-    public ModdedNumberOption BrittleChance { get; } =
-        new("Brittle Chance", 30f, 0f, 100f, 10f, MiraNumberSuffixes.Percent)
-        {
-            Visible = () => OptionGroupSingleton<CrewmateModifierOptions>.Instance.BrittleAmount > 0
-        };
-    public ModdedNumberOption BrittleMaxInteractions { get; } =
-        new("Max Interactions", 5f, 1f, 20f, 1f, MiraNumberSuffixes.None)
-        {
-            Visible = () => OptionGroupSingleton<CrewmateModifierOptions>.Instance.BrittleAmount > 0
         };
     
     /*----------------------

@@ -451,6 +451,7 @@
         "\n- Added an update checker",
         "\n\n\r<size=105%>Changes:</size>",
         "\n- Removed custom death message for bloodlust",
+        "\n- Reworked trickster into a nk",
         "\n\n\r<size=105%>Bugfixes:</size>",
         "\n- Fixed bloodlust being able to kill its own team"
       ]
