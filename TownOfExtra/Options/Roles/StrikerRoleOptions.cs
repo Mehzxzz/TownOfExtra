@@ -6,7 +6,7 @@ using TownOfExtra.Roles.Impostor.Killing;
 
 namespace TownOfExtra.Options.Roles;
 
-public sealed class StrikerRoleOptions : AbstractOptionGroup<StrikerRole>
+public sealed class StrikerRoleOptions : AbstractRoleOptionGroup<StrikerRole>
 {
     public override string GroupName => "Striker";
     

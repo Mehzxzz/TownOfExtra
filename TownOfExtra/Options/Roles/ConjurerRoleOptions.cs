@@ -5,7 +5,7 @@ using TownOfExtra.Roles.Impostor.Power;
 
 namespace TownOfExtra.Options.Roles;
 
-public sealed class ConjurerRoleOptions : AbstractOptionGroup<ConjurerRole>
+public sealed class ConjurerRoleOptions : AbstractRoleOptionGroup<ConjurerRole>
 {
     public override string GroupName => "Conjurer";
 

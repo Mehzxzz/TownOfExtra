@@ -5,7 +5,7 @@ using TownOfExtra.Roles.Neutral.Killing;
 
 namespace TownOfExtra.Options.Roles;
 
-public sealed class BarbarianRoleOptions : AbstractOptionGroup<BarbarianRole>
+public sealed class BarbarianRoleOptions : AbstractRoleOptionGroup<BarbarianRole>
 {
     public override string GroupName => "Barbarian";
 

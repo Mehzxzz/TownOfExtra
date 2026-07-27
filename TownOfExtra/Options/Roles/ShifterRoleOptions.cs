@@ -5,7 +5,7 @@ using TownOfExtra.Roles.Neutral.Outlier;
 
 namespace TownOfExtra.Options.Roles;
 
-public sealed class ShifterRoleOptions : AbstractOptionGroup<ShifterRole>
+public sealed class ShifterRoleOptions : AbstractRoleOptionGroup<ShifterRole>
 {
     public override string GroupName => "Shifter";
 

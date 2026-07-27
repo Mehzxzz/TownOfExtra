@@ -39,6 +39,7 @@ public sealed class EraserRole : ImpostorRole, ITownOfUsRole, IWikiDiscoverable,
 
     public CustomRoleConfiguration Configuration => new CustomRoleConfiguration(this)
     {
+        IconTmp = MiraAPI.Utilities.Assets.TmpSpriteUtils.CreateSpriteAsset(TownOfExtraAssets.EraserRoleIcon.LoadAsset(), "ToEx.Role.Impostor.Eraser", 1.45f),
         MaxRoleCount = 1,
         Icon = TownOfExtraAssets.EraserRoleIcon
     };

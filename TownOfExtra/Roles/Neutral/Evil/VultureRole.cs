@@ -62,6 +62,7 @@ public sealed class VultureRole(IntPtr cppPtr) : NeutralRole(cppPtr), ITownOfUsR
 
     public CustomRoleConfiguration Configuration => new CustomRoleConfiguration(this)
     {
+        IconTmp = MiraAPI.Utilities.Assets.TmpSpriteUtils.CreateSpriteAsset(TownOfExtraAssets.VultureRoleIcon.LoadAsset(), "ToEx.Role.Neutral.Vulture", 1.45f),
         MaxRoleCount = 1,
         Icon = TownOfExtraAssets.VultureRoleIcon,
         GhostRole = (RoleTypes)RoleId.Get<NeutralGhostRole>()

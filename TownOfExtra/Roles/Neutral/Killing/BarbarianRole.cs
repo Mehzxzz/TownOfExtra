@@ -50,6 +50,7 @@ public sealed class BarbarianRole(IntPtr cppPtr) : NeutralRole(cppPtr), ITownOfU
 
     public CustomRoleConfiguration Configuration => new CustomRoleConfiguration(this)
     {
+        IconTmp = MiraAPI.Utilities.Assets.TmpSpriteUtils.CreateSpriteAsset(TownOfExtraAssets.BarbarianRoleIcon.LoadAsset(), "ToEx.Role.Neutral.Barbarian", 1.45f),
         Icon = TownOfExtraAssets.BarbarianRoleIcon,
         MaxRoleCount = 1,
         CanUseVent = OptionGroupSingleton<BarbarianRoleOptions>.Instance.CanVent,

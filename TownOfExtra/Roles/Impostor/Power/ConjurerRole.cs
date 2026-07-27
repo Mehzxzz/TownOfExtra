@@ -35,6 +35,7 @@ public sealed class ConjurerRole : ImpostorRole, ITownOfUsRole, IWikiDiscoverabl
 
     public CustomRoleConfiguration Configuration => new CustomRoleConfiguration(this)
     {
+        IconTmp = MiraAPI.Utilities.Assets.TmpSpriteUtils.CreateSpriteAsset(TownOfExtraAssets.ConjurerRoleIcon.LoadAsset(), "ToEx.Role.Impostor.Conjurer", 1.45f),
         Icon = TownOfExtraAssets.ConjurerRoleIcon
     };
     

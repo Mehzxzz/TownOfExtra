@@ -5,7 +5,7 @@ using TownOfExtra.Roles.Impostor.Power;
 
 namespace TownOfExtra.Options.Roles;
 
-public sealed class EraserRoleOptions : AbstractOptionGroup<EraserRole>
+public sealed class EraserRoleOptions : AbstractRoleOptionGroup<EraserRole>
 {
     public override string GroupName => "Eraser";
     

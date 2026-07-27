@@ -5,7 +5,7 @@ using TownOfExtra.Roles.Impostor.Support;
 
 namespace TownOfExtra.Options.Roles;
 
-public sealed class ObstructorRoleOptions : AbstractOptionGroup<ObstructorRole>
+public sealed class ObstructorRoleOptions : AbstractRoleOptionGroup<ObstructorRole>
 {
     public override string GroupName => "Obstructor";
 

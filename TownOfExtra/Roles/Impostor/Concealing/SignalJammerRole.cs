@@ -33,6 +33,7 @@ public sealed class SignalJammerRole : ImpostorRole, ITownOfUsRole, IWikiDiscove
 
     public CustomRoleConfiguration Configuration => new CustomRoleConfiguration(this)
     {
+        IconTmp = MiraAPI.Utilities.Assets.TmpSpriteUtils.CreateSpriteAsset(TownOfExtraAssets.SignalJammerRoleIcon.LoadAsset(), "ToEx.Role.Impostor.SignalJammer", 1.45f),
         Icon = TownOfExtraAssets.SignalJammerRoleIcon
     };
     

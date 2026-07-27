@@ -33,6 +33,7 @@ public sealed class PoisonerRole : ImpostorRole, ITownOfUsRole, IWikiDiscoverabl
 
     public CustomRoleConfiguration Configuration => new CustomRoleConfiguration(this)
     {
+        IconTmp = MiraAPI.Utilities.Assets.TmpSpriteUtils.CreateSpriteAsset(TownOfExtraAssets.PoisonerRoleIcon.LoadAsset(), "ToEx.Role.Impostor.Poisoner", 1.45f),
         UseVanillaKillButton = false,
         Icon = TownOfExtraAssets.PoisonerRoleIcon
     };

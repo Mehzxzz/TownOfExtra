@@ -52,6 +52,7 @@ public sealed class ClownRole(IntPtr cppPtr) : NeutralRole(cppPtr), ITownOfUsRol
 
     public CustomRoleConfiguration Configuration => new CustomRoleConfiguration(this)
     {
+        IconTmp = MiraAPI.Utilities.Assets.TmpSpriteUtils.CreateSpriteAsset(TownOfExtraAssets.ClownRoleIcon.LoadAsset(), "ToEx.Role.Neutral.Clown", 1.45f),
         Icon = TownOfExtraAssets.ClownRoleIcon,
         CanUseVent = true,
         GhostRole = (RoleTypes)RoleId.Get<NeutralGhostRole>()

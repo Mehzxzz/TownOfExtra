@@ -5,7 +5,7 @@ using TownOfExtra.Roles.Crewmate.Killing;
 
 namespace TownOfExtra.Options.Roles;
 
-public sealed class CommanderRoleOptions : AbstractOptionGroup<CommanderRole>
+public sealed class CommanderRoleOptions : AbstractRoleOptionGroup<CommanderRole>
 {
     public override string GroupName => "Commander";
 

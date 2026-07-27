@@ -35,6 +35,7 @@ public sealed class HolographerRole : ImpostorRole, ITownOfUsRole, IWikiDiscover
 
     public CustomRoleConfiguration Configuration => new CustomRoleConfiguration(this)
     {
+        IconTmp = MiraAPI.Utilities.Assets.TmpSpriteUtils.CreateSpriteAsset(TownOfExtraAssets.HolographerRoleIcon.LoadAsset(), "ToEx.Role.Impostor.Holographer", 1.45f),
         Icon = TownOfExtraAssets.HolographerRoleIcon
     };
     

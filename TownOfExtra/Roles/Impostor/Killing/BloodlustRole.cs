@@ -31,6 +31,7 @@ public sealed class BloodlustRole : ImpostorRole, ITownOfUsRole, IWikiDiscoverab
 
     public CustomRoleConfiguration Configuration => new CustomRoleConfiguration(this)
     {
+        IconTmp = MiraAPI.Utilities.Assets.TmpSpriteUtils.CreateSpriteAsset(TownOfExtraAssets.BloodlustRoleIcon.LoadAsset(), "ToEx.Role.Impostor.Bloodlust", 1.45f),
         Icon = TownOfExtraAssets.BloodlustRoleIcon,
         CanUseVent = OptionGroupSingleton<BloodlustRoleOptions>.Instance.CanVent,
         CanUseSabotage =  OptionGroupSingleton<BloodlustRoleOptions>.Instance.CanSabotage,

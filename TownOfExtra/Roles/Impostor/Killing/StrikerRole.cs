@@ -50,6 +50,7 @@ public sealed class StrikerRole : ImpostorRole, ITownOfUsRole, IWikiDiscoverable
 
     public CustomRoleConfiguration Configuration => new CustomRoleConfiguration(this)
     {
+        IconTmp = MiraAPI.Utilities.Assets.TmpSpriteUtils.CreateSpriteAsset(TownOfExtraAssets.StrikerRoleIcon.LoadAsset(), "ToEx.Role.Impostor.Striker", 1.45f),
         Icon = TownOfExtraAssets.StrikerRoleIcon
     };
     

@@ -5,7 +5,7 @@ using TownOfExtra.Roles.Impostor.Concealing;
 
 namespace TownOfExtra.Options.Roles;
 
-public sealed class SignalJammerRoleOptions : AbstractOptionGroup<SignalJammerRole>
+public sealed class SignalJammerRoleOptions : AbstractRoleOptionGroup<SignalJammerRole>
 {
     public override string GroupName => "Signal Jammer";
     

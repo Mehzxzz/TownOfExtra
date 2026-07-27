@@ -5,7 +5,7 @@ using TownOfExtra.Roles.Neutral.Killing;
 
 namespace TownOfExtra.Options.Roles;
 
-public class SquidRoleOptions : AbstractOptionGroup<SquidRole>
+public class SquidRoleOptions : AbstractRoleOptionGroup<SquidRole>
 {
     public override string GroupName => "Squid";
     

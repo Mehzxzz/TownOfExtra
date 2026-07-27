@@ -85,6 +85,7 @@ public sealed class ChiefRole : CrewmateRole, ITouCrewRole, IWikiDiscoverable, I
     
     public CustomRoleConfiguration Configuration => new CustomRoleConfiguration(this)
     {
+        IconTmp = MiraAPI.Utilities.Assets.TmpSpriteUtils.CreateSpriteAsset(TownOfExtraAssets.ChiefRoleIcon.LoadAsset(), "ToEx.Role.Crewmate.Chief", 1.45f),
         MaxRoleCount = 1,
         Icon = TownOfExtraAssets.ChiefRoleIcon
     };

@@ -5,7 +5,7 @@ using TownOfExtra.Roles.Impostor.Power;
 
 namespace TownOfExtra.Options.Roles;
 
-public sealed class VinculatorRoleOptions : AbstractOptionGroup<VinculatorRole>, IOptionable
+public sealed class VinculatorRoleOptions : AbstractRoleOptionGroup<VinculatorRole>, IOptionable
 {
     public override string GroupName => "Vinculator";
     

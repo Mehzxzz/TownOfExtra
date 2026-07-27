@@ -5,7 +5,7 @@ using TownOfExtra.Roles.Neutral.Evil;
 
 namespace TownOfExtra.Options.Roles;
 
-public sealed class TricksterRoleOptions : AbstractOptionGroup<TricksterRole>
+public sealed class TricksterRoleOptions : AbstractRoleOptionGroup<TricksterRole>
 {
     public override string GroupName => "Trickster";
     

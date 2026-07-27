@@ -62,6 +62,7 @@ public sealed class ShadowWalkerRole(IntPtr cppPtr) : NeutralRole(cppPtr), ITown
 
     public CustomRoleConfiguration Configuration => new CustomRoleConfiguration(this)
     {
+        IconTmp = MiraAPI.Utilities.Assets.TmpSpriteUtils.CreateSpriteAsset(TownOfExtraAssets.ShadowWalkerRoleIcon.LoadAsset(), "ToEx.Role.Neutral.ShadowWalker", 1.45f),
         Icon = TownOfExtraAssets.ShadowWalkerRoleIcon,
         CanUseVent = OptionGroupSingleton<ShadowWalkerRoleOptions>.Instance.CanVent,
         GhostRole = (RoleTypes)RoleId.Get<NeutralGhostRole>()

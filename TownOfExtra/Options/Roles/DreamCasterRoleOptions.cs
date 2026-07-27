@@ -5,7 +5,7 @@ using TownOfExtra.Roles.Impostor.Power;
 
 namespace TownOfExtra.Options.Roles;
 
-public sealed class DreamCasterRoleOptions : AbstractOptionGroup<DreamCasterRole>
+public sealed class DreamCasterRoleOptions : AbstractRoleOptionGroup<DreamCasterRole>
 {
     public override string GroupName => "Dream Caster";
 
