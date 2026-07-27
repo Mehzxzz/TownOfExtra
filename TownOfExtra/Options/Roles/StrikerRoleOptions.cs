@@ -72,12 +72,6 @@ public sealed class StrikerRoleOptions : AbstractRoleOptionGroup<StrikerRole>
         {
             Visible = () => !OptionGroupSingleton<StrikerRoleOptions>.Instance.ShareAssassinSettings
         };
-
-    public ModdedToggleOption StrikerGuessImpostors { get; } =
-        new("Striker Can Guess Impostor Roles", true)
-        {
-            Visible = () => !OptionGroupSingleton<StrikerRoleOptions>.Instance.ShareAssassinSettings
-        };
 }
 
 public enum StrikerIntroBlurb

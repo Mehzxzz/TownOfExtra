@@ -136,7 +136,7 @@ public sealed class StrikerStrikeButton : TownOfUsRoleButton<StrikerRole>
 
         if (role.IsCrewmate() && role is ICustomRole) return true;
         if (role.IsCrewmate()) return strikerOpts.StrikerGuessCrewmate.Value;
-        if (role.IsImpostor()) return strikerOpts.StrikerGuessImpostors.Value;
+        if (role.IsImpostor()) return false;
         if (alignment == RoleAlignment.NeutralBenign) return strikerOpts.StrikerGuessNeutralBenign.Value;
         if (alignment == RoleAlignment.NeutralEvil) return strikerOpts.StrikerGuessNeutralEvil.Value;
         if (alignment == RoleAlignment.NeutralKilling) return strikerOpts.StrikerGuessNeutralKilling.Value;
