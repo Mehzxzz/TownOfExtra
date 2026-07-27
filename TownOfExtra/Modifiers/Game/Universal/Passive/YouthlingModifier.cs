@@ -1,7 +1,7 @@
 ﻿using MiraAPI.GameOptions;
 using MiraAPI.Utilities.Assets;
-using TownOfExtra.Modules;
 using TownOfExtra.Options;
+using TownOfExtra.Options.Modifiers;
 using TownOfUs.Extensions;
 using TownOfUs.Interfaces;
 using TownOfUs.Modifiers;
@@ -32,7 +32,7 @@ public class YouthlingModifier : TouGameModifier, IWikiDiscoverable, IColoredMod
 
     public string GetAdvancedDescription()
     {
-        return $"You cannot be killed until you reach 18 years old. Your age increases by 1 every {OptionGroupSingleton<UniversalModifierOptions>.Instance.YouthlingTimeBetweenAge.Value} seconds.";
+        return $"You cannot be killed until you reach 18 years old. Your age increases by 1 every {OptionGroupSingleton<YouthlingOptions>.Instance.TimeBetweenAge.Value} seconds.";
     }
 
     public override int GetAmountPerGame()
@@ -79,7 +79,7 @@ public class YouthlingModifier : TouGameModifier, IWikiDiscoverable, IColoredMod
 
         _timer += Time.fixedDeltaTime;
 
-        if (_timer >= OptionGroupSingleton<UniversalModifierOptions>.Instance.YouthlingTimeBetweenAge.Value)
+        if (_timer >= OptionGroupSingleton<YouthlingOptions>.Instance.TimeBetweenAge.Value)
         {
             _timer = 0f;
             Age++;

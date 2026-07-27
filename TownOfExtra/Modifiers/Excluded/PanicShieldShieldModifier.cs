@@ -1,13 +1,13 @@
 using MiraAPI.GameOptions;
 using MiraAPI.Modifiers.Types;
 using TownOfExtra.Networking.Global;
-using TownOfExtra.Options;
+using TownOfExtra.Options.Modifiers;
 
 namespace TownOfExtra.Modifiers.Excluded;
 
 public sealed class PanicShieldShieldModifier : TimedModifier
 {
-    public override float Duration => OptionGroupSingleton<CrewmateModifierOptions>.Instance.PanicShieldDuration.Value;
+    public override float Duration => OptionGroupSingleton<PanicShieldOptions>.Instance.Duration.Value;
     public override string ModifierName => "Panic Shield (Active)";
     public override bool AutoStart => true;
     public override bool HideOnUi => true;

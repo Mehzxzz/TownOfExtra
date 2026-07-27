@@ -4,9 +4,8 @@ using MiraAPI.Events.Vanilla.Player;
 using MiraAPI.GameOptions;
 using MiraAPI.Modifiers;
 using TownOfExtra.Modifiers.Game.Crewmate.Passive;
-using TownOfExtra.Networking;
 using TownOfExtra.Networking.Global;
-using TownOfExtra.Options;
+using TownOfExtra.Options.Modifiers;
 using UnityEngine;
 
 namespace TownOfExtra.Events;
@@ -59,7 +58,7 @@ public class ClumsyEvents
     {
         if (e.Player != PlayerControl.LocalPlayer) return;
         if (!PlayerControl.LocalPlayer.HasModifier<ClumsyModifier>()) return;
-        if (Random.Range(0f, 100f) > OptionGroupSingleton<CrewmateModifierOptions>.Instance.ClumsySabotageChance.Value) return;
+        if (Random.Range(0f, 100f) > OptionGroupSingleton<ClumsyOptions>.Instance.SabotageChance.Value) return;
         if (RoomTracker.Instance.LastRoom == null) return;
         
         var saboStatus = ShipStatus.Instance.Systems[SystemTypes.Sabotage].TryCast<SabotageSystemType>();

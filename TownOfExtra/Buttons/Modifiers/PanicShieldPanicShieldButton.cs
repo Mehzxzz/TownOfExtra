@@ -6,7 +6,7 @@ using MiraAPI.Utilities.Assets;
 using TownOfExtra.Modifiers.Excluded;
 using TownOfExtra.Modifiers.Game.Crewmate.Utility;
 using TownOfExtra.Networking.Global;
-using TownOfExtra.Options;
+using TownOfExtra.Options.Modifiers;
 using TownOfUs.Buttons;
 using UnityEngine;
 
@@ -18,7 +18,7 @@ public sealed class PanicShieldPanicShieldButton : TownOfUsButton
     public override BaseKeybind Keybind => Keybinds.ModifierAction;
     public override Color TextOutlineColor => TownOfExtraColours.PanicShieldModifierColour;
     public override float Cooldown => 0.01f;
-    public override float EffectDuration => OptionGroupSingleton<CrewmateModifierOptions>.Instance.PanicShieldDuration.Value;
+    public override float EffectDuration => OptionGroupSingleton<PanicShieldOptions>.Instance.Duration.Value;
     public override int MaxUses => 1;
     public override ButtonLocation Location => ButtonLocation.BottomLeft;
     public override LoadableAsset<Sprite> Sprite => TownOfExtraAssets.PanicShieldPanicShieldButton;

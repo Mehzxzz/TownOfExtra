@@ -1,6 +1,7 @@
 ﻿using MiraAPI.GameOptions;
 using MiraAPI.Utilities.Assets;
 using TownOfExtra.Options;
+using TownOfExtra.Options.Modifiers;
 using TownOfUs;
 using TownOfUs.Interfaces;
 using TownOfUs.Modifiers;
@@ -27,7 +28,7 @@ public class ClumsyModifier : TouGameModifier, IWikiDiscoverable, IColoredModifi
     public string GetAdvancedDescription()
     {
         return
-            $"Whenever you complete a task, there is a {OptionGroupSingleton<CrewmateModifierOptions>.Instance.ClumsySabotageChance.Value}% chance for a sabotage to be called in your current room (if there is one for that room).\n\n" +
+            $"Whenever you complete a task, there is a {OptionGroupSingleton<ClumsyOptions>.Instance.SabotageChance.Value}% chance for a sabotage to be called in your current room (if there is one for that room).\n\n" +
             $"<b>{TownOfUsColors.Vigilante.ToTextColor()}Rooms:</color></b>\n" +
             "<b>Skeld:</b>\n" +
             "Reactor = Reactor\n" +

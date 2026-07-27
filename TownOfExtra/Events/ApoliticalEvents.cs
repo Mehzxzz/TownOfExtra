@@ -8,7 +8,7 @@ using MiraAPI.GameOptions;
 using MiraAPI.Hud;
 using MiraAPI.Modifiers;
 using TownOfExtra.Modifiers.Game.Universal.Passive;
-using TownOfExtra.Options;
+using TownOfExtra.Options.Modifiers;
 
 namespace TownOfExtra.Events;
 
@@ -19,7 +19,7 @@ public class ApoliticalEvents
     {
         if (!PlayerControl.LocalPlayer.HasModifier<ApoliticalModifier>()) return;
         ApoliticalModifier.CdIncrease +=
-            (int)OptionGroupSingleton<UniversalModifierOptions>.Instance.ApoliticalCdIncrease *
+            (int)OptionGroupSingleton<ApoliticalOptions>.Instance.CdIncrease *
             e.Votes.Count(v => v.Suspect == PlayerControl.LocalPlayer.PlayerId);
     }
 

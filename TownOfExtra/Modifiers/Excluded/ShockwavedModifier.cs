@@ -3,9 +3,8 @@ using MiraAPI.GameOptions;
 using MiraAPI.Modifiers;
 using MiraAPI.Utilities.Assets;
 using Reactor.Utilities;
-using TownOfExtra.Networking;
 using TownOfExtra.Networking.Global;
-using TownOfExtra.Options;
+using TownOfExtra.Options.Modifiers;
 using TownOfUs.Modifiers;
 using UnityEngine;
 
@@ -15,7 +14,7 @@ public class ShockwavedModifier : BaseRevealModifier
 {
     public override string ModifierName => "Shockwaved";
     public override bool HideOnUi => false;
-    public override float Duration => OptionGroupSingleton<ImpostorModifierOptions>.Instance.ShockwaveEffectDuration.Value;
+    public override float Duration => OptionGroupSingleton<ShockwaveOptions>.Instance.EffectDuration.Value;
     public override bool AutoStart => true;
     public override bool RemoveOnComplete => true;
     public override LoadableAsset<Sprite> ModifierIcon => TownOfExtraAssets.ShockwaveModifierIcon;
@@ -40,7 +39,7 @@ public class ShockwavedModifier : BaseRevealModifier
         );
         
         NormalSpeed = Player.MyPhysics.Speed;
-        Player.MyPhysics.Speed *= OptionGroupSingleton<ImpostorModifierOptions>.Instance.ShockwaveSpeedDebuffMultiplier.Value;
+        Player.MyPhysics.Speed *= OptionGroupSingleton<ShockwaveOptions>.Instance.SpeedDebuffMultiplier.Value;
         
         Coroutines.Start(
             Effects.Shake(HudManager.Instance.PlayerCam.transform, 1f, 0.08f, true, true).WrapToManaged());

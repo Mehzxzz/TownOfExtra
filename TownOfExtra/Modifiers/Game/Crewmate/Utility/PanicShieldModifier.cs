@@ -1,6 +1,7 @@
 ﻿using MiraAPI.GameOptions;
 using MiraAPI.Utilities.Assets;
 using TownOfExtra.Options;
+using TownOfExtra.Options.Modifiers;
 using TownOfUs.Interfaces;
 using TownOfUs.Modifiers;
 using TownOfUs.Modifiers.Game;
@@ -28,7 +29,7 @@ public class PanicShieldModifier : TouGameModifier, IWikiDiscoverable, IColoredM
 
     public string GetAdvancedDescription()
     {
-        return $"Only once in the game, you can set off a panic shield protecting you from all attacks for {OptionGroupSingleton<CrewmateModifierOptions>.Instance.PanicShieldDuration.Value} seconds.";
+        return $"Only once in the game, you can set off a panic shield protecting you from all attacks for {OptionGroupSingleton<PanicShieldOptions>.Instance.Duration.Value} seconds.";
     }
 
     public override int GetAmountPerGame()

@@ -3,7 +3,7 @@ using System.Linq;
 using MiraAPI.Events;
 using MiraAPI.Events.Vanilla.Gameplay;
 using MiraAPI.Modifiers;
-using TownOfExtra.Modifiers.Game.Impostor.Passive;
+using TownOfExtra.Modifiers.Game.Impostor.Utility;
 using TownOfExtra.Networking;
 using TownOfUs.Utilities;
 

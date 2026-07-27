@@ -1,6 +1,6 @@
 ﻿using Reactor.Networking.Attributes;
 //todo: using TownOfExtra.Achievements;
-using TownOfExtra.Modifiers.Game.Impostor.Passive;
+using TownOfExtra.Modifiers.Game.Impostor.Utility;
 using TownOfExtra.Modules;
 using TownOfExtra.Networking.Global;
 using TownOfUs.Modules;

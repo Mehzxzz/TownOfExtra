@@ -1,7 +1,7 @@
 ﻿using MiraAPI.GameOptions;
 using MiraAPI.Utilities.Assets;
-using TownOfExtra.Modules;
 using TownOfExtra.Options;
+using TownOfExtra.Options.Modifiers;
 using TownOfUs.Extensions;
 using TownOfUs.Interfaces;
 using TownOfUs.Modifiers;
@@ -32,7 +32,7 @@ public class ApoliticalModifier : TouGameModifier, IWikiDiscoverable, IColoredMo
 
     public string GetAdvancedDescription()
     {
-        return $"Your role's button cooldowns increases by {OptionGroupSingleton<UniversalModifierOptions>.Instance.ApoliticalCdIncrease.Value} for each vote you gain. (Until the next meeting)";
+        return $"Your role's button cooldowns increases by {OptionGroupSingleton<ApoliticalOptions>.Instance.CdIncrease.Value} for each vote you gain. (Until the next meeting)";
     }
 
     public override int GetAmountPerGame()

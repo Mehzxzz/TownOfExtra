@@ -15,7 +15,7 @@ public sealed class ImpostorModifierOptions : AbstractOptionGroup
     public override Func<bool> GroupVisible => () => OptionGroupSingleton<RoleOptions>.Instance.IsClassicRoleAssignment;
     public override Color GroupColor => TownOfUsColors.Impostor;
     public override MenuCategory ParentMenu => MenuCategory.Modifiers;
-    public override uint GroupPriority => 2;
+    public override uint GroupPriority => 3;
 
     /*----------------------
             SHOCKWAVE
@@ -26,37 +26,6 @@ public sealed class ImpostorModifierOptions : AbstractOptionGroup
 
     public ModdedNumberOption ShockwaveChance { get; } =
         new("Shockwave Chance", 50f, 0f, 100f, 10f, MiraNumberSuffixes.Percent)
-        {
-            Visible = () => OptionGroupSingleton<ImpostorModifierOptions>.Instance.ShockwaveAmount > 0
-        };
-    public ModdedNumberOption ShockwaveRadius { get; } =
-        new("Shockwave Radius", 1f, 0.25f, 5f, 0.25f, MiraNumberSuffixes.Multiplier, "0.00")
-        {
-            Visible = () => OptionGroupSingleton<ImpostorModifierOptions>.Instance.ShockwaveAmount > 0
-        };
-    public ModdedNumberOption ShockwaveCooldown { get; } =
-        new("Shockwave Cooldown", 25f, 2.5f, 120f, 2.5f, MiraNumberSuffixes.Seconds)
-        {
-            Visible = () => OptionGroupSingleton<ImpostorModifierOptions>.Instance.ShockwaveAmount > 0
-        };
-    public ModdedNumberOption ShockwaveUses { get; } =
-        new("Shockwave Uses", 1f, 1f, 5f, 1f, MiraNumberSuffixes.None)
-        {
-            Visible = () => OptionGroupSingleton<ImpostorModifierOptions>.Instance.ShockwaveAmount > 0
-        };
-    public ModdedNumberOption ShockwaveEffectDuration { get; } =
-        new("Shockwave effect durations", 10f, 5f, 15f, 1f, MiraNumberSuffixes.Seconds)
-        {
-            Visible = () => OptionGroupSingleton<ImpostorModifierOptions>.Instance.ShockwaveAmount > 0
-        };
-    public ModdedNumberOption ShockwaveVisionDebuffMultiplier { get; } =
-        new("Shockwave Vision Multiplier", 0.05f, 0f, 0.25f, 0.05f, MiraNumberSuffixes.Multiplier, "0.00")
-        {
-            Visible = () => OptionGroupSingleton<ImpostorModifierOptions>.Instance.ShockwaveAmount > 0
-        };
-
-    public ModdedNumberOption ShockwaveSpeedDebuffMultiplier { get; } =
-        new("Shockwave Speed Multiplier (1=off)", 0.35f, 0f, 1f, 0.05f, MiraNumberSuffixes.Multiplier, "0.00")
         {
             Visible = () => OptionGroupSingleton<ImpostorModifierOptions>.Instance.ShockwaveAmount > 0
         };

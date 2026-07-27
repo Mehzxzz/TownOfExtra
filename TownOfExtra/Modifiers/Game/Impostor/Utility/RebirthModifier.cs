@@ -10,7 +10,7 @@ using TownOfUs.Roles.Neutral;
 using TownOfUs.Utilities;
 using UnityEngine;
 
-namespace TownOfExtra.Modifiers.Game.Impostor.Passive;
+namespace TownOfExtra.Modifiers.Game.Impostor.Utility;
 
 public class RebirthModifier : TouGameModifier, IWikiDiscoverable, IColoredModifier
 {

@@ -3,7 +3,7 @@ using MiraAPI.Modifiers;
 using MiraAPI.Modifiers.Types;
 using MiraAPI.Utilities;
 using MiraAPI.Utilities.Assets;
-using TownOfExtra.Options;
+using TownOfExtra.Options.Modifiers;
 using TownOfUs.Utilities;
 using UnityEngine;
 
@@ -13,7 +13,7 @@ public class RoutineSpeedModifier : TimedModifier
 {
     public override string ModifierName => "Speed Boost";
     public override bool HideOnUi => false;
-    public override float Duration => OptionGroupSingleton<CrewmateModifierOptions>.Instance.RoutineSpeedBoostDuration.Value;
+    public override float Duration => OptionGroupSingleton<RoutineOptions>.Instance.SpeedBoostDuration.Value;
     public override bool AutoStart => true;
     public override bool RemoveOnComplete => true;
     public override LoadableAsset<Sprite> ModifierIcon => TownOfExtraAssets.SpeedBoostModifierIcon;
@@ -30,7 +30,7 @@ public class RoutineSpeedModifier : TimedModifier
         if (!Player.AmOwner) return;
         
         NormalSpeed = Player.MyPhysics.Speed;
-        Player.MyPhysics.Speed = NormalSpeed * OptionGroupSingleton<CrewmateModifierOptions>.Instance.RoutineSpeedBoost.Value;
+        Player.MyPhysics.Speed = NormalSpeed * OptionGroupSingleton<RoutineOptions>.Instance.SpeedBoost.Value;
         
         var notif = Helpers.CreateAndShowNotification(
             $"You have gained a {Palette.CrewmateBlue.ToTextColor()}speed boost</color>!",

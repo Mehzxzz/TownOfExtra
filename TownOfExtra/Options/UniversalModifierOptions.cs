@@ -15,7 +15,7 @@ public sealed class UniversalModifierOptions : AbstractOptionGroup
     public override Func<bool> GroupVisible => () => OptionGroupSingleton<RoleOptions>.Instance.IsClassicRoleAssignment;
     public override Color GroupColor => TownOfUsColors.Neutral;
     public override MenuCategory ParentMenu => MenuCategory.Modifiers;
-    public override uint GroupPriority => 2;
+    public override uint GroupPriority => 4;
 
     /*----------------------
             SOULLESS
@@ -43,12 +43,6 @@ public sealed class UniversalModifierOptions : AbstractOptionGroup
             Visible = () => OptionGroupSingleton<UniversalModifierOptions>.Instance.ApoliticalAmount > 0
         };
     
-    public ModdedNumberOption ApoliticalCdIncrease { get; } =
-        new("Cooldown increase per vote", 3f, 1f, 10f, 1f, MiraNumberSuffixes.None)
-        {
-            Visible = () => OptionGroupSingleton<UniversalModifierOptions>.Instance.ApoliticalAmount > 0
-        };
-    
     /*----------------------
               MUTE
     ----------------------*/
@@ -71,12 +65,6 @@ public sealed class UniversalModifierOptions : AbstractOptionGroup
 
     public ModdedNumberOption YouthlingChance { get; } =
         new("Youthling Chance", 50f, 0f, 100f, 10f, MiraNumberSuffixes.Percent)
-        {
-            Visible = () => OptionGroupSingleton<UniversalModifierOptions>.Instance.YouthlingAmount > 0
-        };
-    
-    public ModdedNumberOption YouthlingTimeBetweenAge { get; } =
-        new("Time between age", 15f, 2.5f, 30f, 2.5f, MiraNumberSuffixes.Seconds)
         {
             Visible = () => OptionGroupSingleton<UniversalModifierOptions>.Instance.YouthlingAmount > 0
         };
