@@ -8,7 +8,6 @@ using MiraAPI.Patches.Stubs;
 using MiraAPI.Roles;
 using MiraAPI.Utilities;
 using TownOfExtra.Modules;
-using TownOfExtra.Networking;
 using TownOfExtra.Networking.Global;
 using TownOfExtra.Options.Roles;
 using TownOfUs.Assets;
@@ -71,7 +70,6 @@ public sealed class StrikerRole : ImpostorRole, ITownOfUsRole, IWikiDiscoverable
     private MeetingMenu _meetingMenu;
     public static int UsesLeft = (int)OptionGroupSingleton<StrikerRoleOptions>.Instance.LocateUses;
     public static int UsesThisRound;
-    public static Dictionary<PlayerControl, string> Messages = new Dictionary<PlayerControl, string>();
 
     public override void Initialize(PlayerControl player)
     {
@@ -118,49 +116,35 @@ public sealed class StrikerRole : ImpostorRole, ITownOfUsRole, IWikiDiscoverable
         {
             if (UsesThisRound < OptionGroupSingleton<StrikerRoleOptions>.Instance.LocatesPerMeeting)
             {
-                if (!Messages.ContainsKey(target))
-                {
-                    UsesLeft--;
-                    UsesThisRound++;
+                UsesLeft--;
+                UsesThisRound++;
 
-                    var allRoles = MiscUtils.GetPotentialRoles().Where(x => !x.IsImpostor() &&
-                                                                            x.Role != target.Data.Role.Role
-                    );
+                var allRoles = MiscUtils.GetPotentialRoles().Where(x => !x.IsImpostor() &&
+                                                                        x.Role != target.Data.Role.Role
+                );
 
-                    var selectedRoles = allRoles
-                        .OrderBy(_ => Guid.NewGuid())
-                        .Take((int)OptionGroupSingleton<StrikerRoleOptions>.Instance.LocateRoleAmount - 1)
-                        .ToList();
+                var selectedRoles = allRoles
+                    .OrderBy(_ => Guid.NewGuid())
+                    .Take((int)OptionGroupSingleton<StrikerRoleOptions>.Instance.LocateRoleAmount - 1)
+                    .ToList();
 
-                    selectedRoles.Add(target.Data.Role);
-                    selectedRoles = selectedRoles.OrderBy(_ => Guid.NewGuid()).ToList();
+                selectedRoles.Add(target.Data.Role);
+                selectedRoles = selectedRoles.OrderBy(_ => Guid.NewGuid()).ToList();
 
-                    var title = $"{Palette.ImpostorRed.ToTextColor()}Locate Result</color>";
-                    var roleListText =
-                        string.Join(", ", selectedRoles.Select(role => MiscUtils.GetHyperlinkText(role)));
-                    var msg = $"{target.Data.PlayerName} is one of the following roles:\n{roleListText}";
-                    Messages.Add(target, msg);
-                    MiscUtils.AddFakeChat(Player.Data, title, msg, false, true);
-                    if (!HudManager.Instance.Chat.IsOpenOrOpening) HudManager.Instance.Chat.Toggle();
+                var title = $"{Palette.ImpostorRed.ToTextColor()}Locate Result</color>";
+                var roleListText =
+                    string.Join(", ", selectedRoles.Select(role => MiscUtils.GetHyperlinkText(role)));
+                var msg = $"{target.Data.PlayerName} is one of the following roles:\n{roleListText}";
+                MiscUtils.AddFakeChat(Player.Data, title, msg, false, true);
+                if (!HudManager.Instance.Chat.IsOpenOrOpening) HudManager.Instance.Chat.Toggle();
 
-                    Player.RpcSendNotification(
-                        $"You have been {Palette.AcceptedGreen.ToTextColor()}given a hint</color> for {target.Data.PlayerName}'s role!",
-                        "StrikerLocateButton",
-                        "ImpButton",
-                        356,
-                        Palette.AcceptedGreen
-                    );
-                }
-                else
-                {
-                    Player.RpcSendNotification(
-                        $"You have {Palette.ImpostorRed.ToTextColor()}already located</color> {target.Data.PlayerName}!",
-                        "StrikerLocateButton",
-                        "ImpButton",
-                        356,
-                        Palette.ImpostorRed
-                    );
-                }
+                Player.RpcSendNotification(
+                    $"You have been {Palette.AcceptedGreen.ToTextColor()}given a hint</color> for {target.Data.PlayerName}'s role!",
+                    "StrikerLocateButton",
+                    "ImpButton",
+                    356,
+                    Palette.AcceptedGreen
+                );
             }
             else
             {
@@ -194,8 +178,7 @@ public sealed class StrikerRole : ImpostorRole, ITownOfUsRole, IWikiDiscoverable
 
         var genOpt = OptionGroupSingleton<GeneralOptions>.Instance;
         if (genOpt.FFAImpostorMode || 
-            (Player.IsLover() && OptionGroupSingleton<LoversOptions>.Instance.LoverKillTeammates) ||
-            !Messages.ContainsKey(target))
+            (Player.IsLover() && OptionGroupSingleton<LoversOptions>.Instance.LoverKillTeammates))
             return false;
 
         return target.IsImpostor();
