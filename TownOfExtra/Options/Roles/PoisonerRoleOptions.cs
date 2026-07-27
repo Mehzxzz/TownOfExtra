@@ -5,7 +5,7 @@ using TownOfExtra.Roles.Impostor.Killing;
 
 namespace TownOfExtra.Options.Roles;
 
-public sealed class PoisonerRoleOptions : AbstractOptionGroup<PoisonerRole>
+public sealed class PoisonerRoleOptions : AbstractRoleOptionGroup<PoisonerRole>
 {
     public override string GroupName => "Poisoner";
     

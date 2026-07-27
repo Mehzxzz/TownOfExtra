@@ -5,7 +5,7 @@ using TownOfExtra.Roles.Impostor.Concealing;
 
 namespace TownOfExtra.Options.Roles;
 
-public sealed class HolographerRoleOptions : AbstractOptionGroup<HolographerRole>
+public sealed class HolographerRoleOptions : AbstractRoleOptionGroup<HolographerRole>
 {
     public override string GroupName => "Holographer";
 

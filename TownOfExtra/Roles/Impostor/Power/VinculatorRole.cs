@@ -29,6 +29,7 @@ public sealed class VinculatorRole : ImpostorRole, ITownOfUsRole, IWikiDiscovera
 
     public CustomRoleConfiguration Configuration => new CustomRoleConfiguration(this)
     {
+        IconTmp = MiraAPI.Utilities.Assets.TmpSpriteUtils.CreateSpriteAsset(TownOfExtraAssets.VinculatorRoleIcon.LoadAsset(), "ToEx.Role.Impostor.Vinculator", 1.45f),
         MaxRoleCount = 1,
         Icon = TownOfExtraAssets.VinculatorRoleIcon
     };

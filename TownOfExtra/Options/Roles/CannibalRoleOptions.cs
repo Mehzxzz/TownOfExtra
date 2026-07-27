@@ -6,7 +6,7 @@ using TownOfExtra.Roles.Neutral.Killing;
 
 namespace TownOfExtra.Options.Roles;
 
-public sealed class CannibalRoleOptions : AbstractOptionGroup<CannibalRole>
+public sealed class CannibalRoleOptions : AbstractRoleOptionGroup<CannibalRole>
 {
     public override string GroupName => "Cannibal";
     

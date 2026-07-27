@@ -65,6 +65,7 @@ public sealed class TricksterRole(IntPtr cppPtr) : NeutralRole(cppPtr), ITownOfU
 
     public CustomRoleConfiguration Configuration => new CustomRoleConfiguration(this)
     {
+        IconTmp = MiraAPI.Utilities.Assets.TmpSpriteUtils.CreateSpriteAsset(TownOfExtraAssets.TricksterRoleIcon.LoadAsset(), "ToEx.Role.Neutral.Trickster", 1.45f),
         MaxRoleCount = 1,
         Icon = TownOfExtraAssets.TricksterRoleIcon,
         GhostRole = (RoleTypes)RoleId.Get<NeutralGhostRole>()

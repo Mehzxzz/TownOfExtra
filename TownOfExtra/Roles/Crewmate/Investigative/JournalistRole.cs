@@ -32,6 +32,7 @@ public sealed class JournalistRole : CrewmateRole, ITownOfUsRole, IWikiDiscovera
     
     public CustomRoleConfiguration Configuration => new CustomRoleConfiguration(this)
     {
+        IconTmp = MiraAPI.Utilities.Assets.TmpSpriteUtils.CreateSpriteAsset(TownOfExtraAssets.JournalistRoleIcon.LoadAsset(), "ToEx.Role.Crewmate.Journalist", 1.45f),
         MaxRoleCount = 1,
         Icon = TownOfExtraAssets.JournalistRoleIcon
     };

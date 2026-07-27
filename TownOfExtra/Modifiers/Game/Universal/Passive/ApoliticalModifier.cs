@@ -2,7 +2,9 @@
 using MiraAPI.Utilities.Assets;
 using TownOfExtra.Modules;
 using TownOfExtra.Options;
+using TownOfUs.Extensions;
 using TownOfUs.Interfaces;
+using TownOfUs.Modifiers;
 using TownOfUs.Modifiers.Game;
 using TownOfUs.Modules.Wiki;
 using TownOfUs.Roles.Crewmate;
@@ -11,7 +13,7 @@ using UnityEngine;
 
 namespace TownOfExtra.Modifiers.Game.Universal.Passive;
 
-public class ApoliticalModifier : TouGameModifier, IWikiDiscoverable, IColoredModifier, IUnguessableModifier
+public class ApoliticalModifier : TouGameModifier, IWikiDiscoverable, IColoredModifier, IUnguessableBasic
 {
     public override string ModifierName => "Apolitical";
     public override ModifierFaction FactionType => ModifierFaction.UniversalPassive;

@@ -2,6 +2,7 @@
 using MiraAPI.Utilities.Assets;
 using TownOfExtra.Options;
 using TownOfUs.Interfaces;
+using TownOfUs.Modifiers;
 using TownOfUs.Modifiers.Game;
 using TownOfUs.Modules.Wiki;
 using TownOfUs.Roles.Crewmate;

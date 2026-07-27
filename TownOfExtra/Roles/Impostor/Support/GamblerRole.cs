@@ -38,6 +38,7 @@ public sealed class GamblerRole : ImpostorRole, ITownOfUsRole, IWikiDiscoverable
 
     public CustomRoleConfiguration Configuration => new CustomRoleConfiguration(this)
     {
+        IconTmp = MiraAPI.Utilities.Assets.TmpSpriteUtils.CreateSpriteAsset(TownOfExtraAssets.GamblerRoleIcon.LoadAsset(), "ToEx.Role.Impostor.Gambler", 1.45f),
         Icon = TownOfExtraAssets.GamblerRoleIcon
     };
 

@@ -5,7 +5,7 @@ using TownOfExtra.Roles.Impostor.Support;
 
 namespace TownOfExtra.Options.Roles;
 
-public sealed class FreezerRoleOptions : AbstractOptionGroup<FreezerRole>
+public sealed class FreezerRoleOptions : AbstractRoleOptionGroup<FreezerRole>
 {
     public override string GroupName => "Freezer";
     

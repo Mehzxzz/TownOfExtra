@@ -5,7 +5,7 @@ using TownOfExtra.Roles.Crewmate.Investigative;
 
 namespace TownOfExtra.Options.Roles;
 
-public sealed class JournalistRoleOptions : AbstractOptionGroup<JournalistRole>
+public sealed class JournalistRoleOptions : AbstractRoleOptionGroup<JournalistRole>
 {
     public override string GroupName => "Journalist";
     

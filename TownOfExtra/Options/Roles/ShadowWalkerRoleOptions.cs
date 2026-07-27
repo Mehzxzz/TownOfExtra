@@ -5,7 +5,7 @@ using TownOfExtra.Roles.Neutral.Killing;
 
 namespace TownOfExtra.Options.Roles;
 
-public sealed class ShadowWalkerRoleOptions : AbstractOptionGroup<ShadowWalkerRole>
+public sealed class ShadowWalkerRoleOptions : AbstractRoleOptionGroup<ShadowWalkerRole>
 {
     public override string GroupName => "Shadow Walker";
 

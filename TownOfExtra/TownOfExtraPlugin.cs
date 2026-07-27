@@ -27,6 +27,8 @@ public class TownOfExtraPlugin : BasePlugin, IMiraPlugin
     private Harmony Harmony { get; } = new(TownOfExtraPluginInfo.Id);
 
     public string OptionsTitleText => "Town Of Extra";
+    public string GetAbbreviatedModName() => $"{TownOfExtraColours.GlobalModColour.ToTextColor()}<b>TOEX</b></color>";
+
     public ConfigFile GetConfigFile() => Config;
 
     public static ManualLogSource Logger;

@@ -5,7 +5,7 @@ using TownOfExtra.Roles.Neutral.Evil;
 
 namespace TownOfExtra.Options.Roles;
 
-public sealed class VultureRoleOptions : AbstractOptionGroup<VultureRole>
+public sealed class VultureRoleOptions : AbstractRoleOptionGroup<VultureRole>
 {
     public override string GroupName => "Vulture";
 

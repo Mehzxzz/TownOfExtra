@@ -47,6 +47,7 @@ public sealed class ShifterRole(IntPtr cppPtr) : NeutralRole(cppPtr), ITownOfUsR
 
     public CustomRoleConfiguration Configuration => new CustomRoleConfiguration(this)
     {
+        IconTmp = MiraAPI.Utilities.Assets.TmpSpriteUtils.CreateSpriteAsset(TownOfExtraAssets.ShifterRoleIcon.LoadAsset(), "ToEx.Role.Neutral.Shifter", 1.45f),
         MaxRoleCount = 1,
         Icon = TownOfExtraAssets.ShifterRoleIcon,
         GhostRole = (RoleTypes)RoleId.Get<NeutralGhostRole>()

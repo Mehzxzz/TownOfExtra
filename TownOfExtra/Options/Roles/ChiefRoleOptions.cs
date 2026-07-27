@@ -5,7 +5,7 @@ using TownOfExtra.Roles.Crewmate.Power;
 
 namespace TownOfExtra.Options.Roles;
 
-public sealed class ChiefRoleOptions : AbstractOptionGroup<ChiefRole>
+public sealed class ChiefRoleOptions : AbstractRoleOptionGroup<ChiefRole>
 {
     public override string GroupName => "Chief";
     

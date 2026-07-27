@@ -55,6 +55,7 @@ public sealed class SquidRole(IntPtr cppPtr) : NeutralRole(cppPtr), ITownOfUsRol
 
     public CustomRoleConfiguration Configuration => new CustomRoleConfiguration(this)
     {
+        IconTmp = MiraAPI.Utilities.Assets.TmpSpriteUtils.CreateSpriteAsset(TownOfExtraAssets.SquidRoleIcon.LoadAsset(), "ToEx.Role.Neutral.Squid", 1.45f),
         Icon = TownOfExtraAssets.SquidRoleIcon,
         CanUseVent = OptionGroupSingleton<SquidRoleOptions>.Instance.CanVent,
         GhostRole = (RoleTypes)RoleId.Get<NeutralGhostRole>()

@@ -84,6 +84,7 @@ public sealed class PoltergeistRole(IntPtr cppPtr) : NeutralRole(cppPtr), ITownO
 
     public CustomRoleConfiguration Configuration => new CustomRoleConfiguration(this)
     {
+        IconTmp = MiraAPI.Utilities.Assets.TmpSpriteUtils.CreateSpriteAsset(TownOfExtraAssets.PoltergeistRoleIcon.LoadAsset(), "ToEx.Role.Neutral.Poltergeist", 1.45f),
         MaxRoleCount = 1,
         Icon = TownOfExtraAssets.PoltergeistRoleIcon,
         GhostRole = (RoleTypes)RoleId.Get<NeutralGhostRole>()

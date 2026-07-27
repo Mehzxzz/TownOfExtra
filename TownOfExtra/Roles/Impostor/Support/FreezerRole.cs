@@ -29,6 +29,7 @@ public sealed class FreezerRole : ImpostorRole, ITownOfUsRole, IWikiDiscoverable
 
     public CustomRoleConfiguration Configuration => new CustomRoleConfiguration(this)
     {
+        IconTmp = MiraAPI.Utilities.Assets.TmpSpriteUtils.CreateSpriteAsset(TownOfExtraAssets.FreezerRoleIcon.LoadAsset(), "ToEx.Role.Impostor.Freezer", 1.45f),
         Icon = TownOfExtraAssets.FreezerRoleIcon
     };
     

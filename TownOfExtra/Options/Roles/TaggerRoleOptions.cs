@@ -5,7 +5,7 @@ using TownOfExtra.Roles.Impostor.Killing;
 
 namespace TownOfExtra.Options.Roles;
 
-public sealed class TaggerRoleOptions : AbstractOptionGroup<TaggerRole>
+public sealed class TaggerRoleOptions : AbstractRoleOptionGroup<TaggerRole>
 {
     public override string GroupName => "Tagger";
     

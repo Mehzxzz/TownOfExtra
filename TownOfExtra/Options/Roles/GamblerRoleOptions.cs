@@ -6,7 +6,7 @@ using TownOfExtra.Roles.Impostor.Support;
 
 namespace TownOfExtra.Options.Roles;
 
-public sealed class GamblerRoleOptions : AbstractOptionGroup<GamblerRole>
+public sealed class GamblerRoleOptions : AbstractRoleOptionGroup<GamblerRole>
 {
     public override string GroupName => "Gambler";
     

@@ -5,7 +5,7 @@ using TownOfExtra.Roles.Neutral.Killing;
 
 namespace TownOfExtra.Options.Roles;
 
-public class ClownRoleOptions : AbstractOptionGroup<ClownRole>
+public class ClownRoleOptions : AbstractRoleOptionGroup<ClownRole>
 {
     public override string GroupName => "Clown";
 

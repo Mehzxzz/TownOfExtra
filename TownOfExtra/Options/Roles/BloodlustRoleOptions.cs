@@ -5,7 +5,7 @@ using TownOfExtra.Roles.Impostor.Killing;
 
 namespace TownOfExtra.Options.Roles;
 
-public sealed class BloodlustRoleOptions : AbstractOptionGroup<BloodlustRole>
+public sealed class BloodlustRoleOptions : AbstractRoleOptionGroup<BloodlustRole>
 {
     public override string GroupName => "Bloodlust";
 

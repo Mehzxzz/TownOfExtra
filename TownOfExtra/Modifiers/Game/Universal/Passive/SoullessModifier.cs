@@ -3,7 +3,9 @@ using MiraAPI.Utilities.Assets;
 using TownOfExtra.Modules;
 using TownOfExtra.Options;
 using TownOfUs;
+using TownOfUs.Extensions;
 using TownOfUs.Interfaces;
+using TownOfUs.Modifiers;
 using TownOfUs.Modifiers.Game;
 using TownOfUs.Modules.Wiki;
 using TownOfUs.Roles.Crewmate;
@@ -12,7 +14,7 @@ using UnityEngine;
 
 namespace TownOfExtra.Modifiers.Game.Universal.Passive;
 
-public class SoullessModifier : TouGameModifier, IWikiDiscoverable, IColoredModifier, IUnguessableModifier
+public class SoullessModifier : TouGameModifier, IWikiDiscoverable, IColoredModifier, IUnguessableBasic
 {
     public override string ModifierName => "Soulless";
     public override ModifierFaction FactionType => ModifierFaction.UniversalPassive;

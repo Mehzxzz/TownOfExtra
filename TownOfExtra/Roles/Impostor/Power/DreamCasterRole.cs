@@ -29,6 +29,7 @@ public sealed class DreamCasterRole : ImpostorRole, ITownOfUsRole, IWikiDiscover
 
     public CustomRoleConfiguration Configuration => new CustomRoleConfiguration(this)
     {
+        IconTmp = MiraAPI.Utilities.Assets.TmpSpriteUtils.CreateSpriteAsset(TownOfExtraAssets.DreamCasterRoleIcon.LoadAsset(), "ToEx.Role.Impostor.DreamCaster", 1.45f),
         Icon = TownOfExtraAssets.DreamCasterRoleIcon
     };
     

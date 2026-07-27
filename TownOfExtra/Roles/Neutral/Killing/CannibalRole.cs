@@ -40,6 +40,7 @@ public sealed class CannibalRole(IntPtr cppPtr) : NeutralRole(cppPtr), ITownOfUs
 
     public CustomRoleConfiguration Configuration => new CustomRoleConfiguration(this)
     {
+        IconTmp = MiraAPI.Utilities.Assets.TmpSpriteUtils.CreateSpriteAsset(TownOfExtraAssets.CannibalRoleIcon.LoadAsset(), "ToEx.Role.Neutral.Cannibal", 1.45f),
         MaxRoleCount = 1,
         Icon = TownOfExtraAssets.CannibalRoleIcon,
         CanUseVent = OptionGroupSingleton<CannibalRoleOptions>.Instance.CanVent,

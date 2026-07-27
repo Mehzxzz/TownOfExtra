@@ -29,6 +29,7 @@ public sealed class ObstructorRole : ImpostorRole, ITownOfUsRole, IWikiDiscovera
 
     public CustomRoleConfiguration Configuration => new CustomRoleConfiguration(this)
     {
+        IconTmp = MiraAPI.Utilities.Assets.TmpSpriteUtils.CreateSpriteAsset(TownOfExtraAssets.ObstructorRoleIcon.LoadAsset(), "ToEx.Role.Impostor.Obstructor", 1.45f),
         Icon = TownOfExtraAssets.ObstructorRoleIcon
     };
     

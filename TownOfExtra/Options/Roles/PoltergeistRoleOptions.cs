@@ -5,7 +5,7 @@ using TownOfExtra.Roles.Neutral.Evil;
 
 namespace TownOfExtra.Options.Roles;
 
-public sealed class PoltergeistRoleOptions : AbstractOptionGroup<PoltergeistRole>
+public sealed class PoltergeistRoleOptions : AbstractRoleOptionGroup<PoltergeistRole>
 {
     public override string GroupName => "Poltergeist";
     

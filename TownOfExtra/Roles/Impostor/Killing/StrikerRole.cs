@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using Il2CppInterop.Runtime.Attributes;
 using MiraAPI.GameOptions;
+using MiraAPI.Modifiers;
 using MiraAPI.Patches.Stubs;
 using MiraAPI.Roles;
 using MiraAPI.Utilities;
@@ -13,6 +14,7 @@ using TownOfExtra.Options.Roles;
 using TownOfUs.Assets;
 using TownOfUs.Extensions;
 using TownOfUs.Interfaces;
+using TownOfUs.Modifiers.Game.Assailant;
 using TownOfUs.Modules;
 using TownOfUs.Modules.Wiki;
 using TownOfUs.Options;
@@ -25,6 +27,11 @@ namespace TownOfExtra.Roles.Impostor.Killing;
 
 public sealed class StrikerRole : ImpostorRole, ITownOfUsRole, IWikiDiscoverable, IDoomable, IUnlovable
 {
+    public bool IsModifierApplicable(BaseModifier modifier)
+    {
+        return modifier is not AssassinModifier;
+    }
+
     public string RoleName => "Striker";
     public string RoleDescription => OptionGroupSingleton<StrikerRoleOptions>.Instance.IntroBlurb == StrikerIntroBlurb.Normal ? "Airstrike players by locating their roles!" : "This your address?";
     public string RoleLongDescription => RoleDescription;
@@ -43,6 +50,7 @@ public sealed class StrikerRole : ImpostorRole, ITownOfUsRole, IWikiDiscoverable
 
     public CustomRoleConfiguration Configuration => new CustomRoleConfiguration(this)
     {
+        IconTmp = MiraAPI.Utilities.Assets.TmpSpriteUtils.CreateSpriteAsset(TownOfExtraAssets.StrikerRoleIcon.LoadAsset(), "ToEx.Role.Impostor.Striker", 1.45f),
         Icon = TownOfExtraAssets.StrikerRoleIcon
     };
     
