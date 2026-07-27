@@ -2,7 +2,9 @@
 using MiraAPI.Utilities.Assets;
 using TownOfExtra.Modules;
 using TownOfExtra.Options;
+using TownOfUs.Extensions;
 using TownOfUs.Interfaces;
+using TownOfUs.Modifiers;
 using TownOfUs.Modifiers.Game;
 using TownOfUs.Modules.Wiki;
 using TownOfUs.Roles.Crewmate;
@@ -12,7 +14,7 @@ using UnityEngine;
 
 namespace TownOfExtra.Modifiers.Game.Crewmate.Passive;
 
-public class RoutineModifier : TouGameModifier, IWikiDiscoverable, IColoredModifier, IUnguessableModifier
+public class RoutineModifier : TouGameModifier, IWikiDiscoverable, IColoredModifier, IUnguessableBasic
 {
     public override string ModifierName => "Routine";
     public override ModifierFaction FactionType => ModifierFaction.CrewmatePassive;

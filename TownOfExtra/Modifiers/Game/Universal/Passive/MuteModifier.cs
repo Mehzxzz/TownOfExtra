@@ -4,6 +4,7 @@ using TownOfExtra.Modules;
 using TownOfExtra.Options;
 using TownOfUs.Extensions;
 using TownOfUs.Interfaces;
+using TownOfUs.Modifiers;
 using TownOfUs.Modifiers.Game;
 using TownOfUs.Modules.Wiki;
 using TownOfUs.Roles.Crewmate;
@@ -12,7 +13,7 @@ using UnityEngine;
 
 namespace TownOfExtra.Modifiers.Game.Universal.Passive;
 
-public class MuteModifier : TouGameModifier, IWikiDiscoverable, IColoredModifier, IUnguessableModifier
+public class MuteModifier : TouGameModifier, IWikiDiscoverable, IColoredModifier, IUnguessableBasic
 {
     public override string ModifierName => "Mute";
     public override ModifierFaction FactionType => ModifierFaction.UniversalPassive;

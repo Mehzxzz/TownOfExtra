@@ -1,9 +1,13 @@
 ﻿using System.Collections.Generic;
 using AmongUs.GameOptions;
 using Il2CppInterop.Runtime.Attributes;
+using MiraAPI.GameOptions;
+using MiraAPI.Modifiers;
 using MiraAPI.Roles;
 using TownOfExtra.Modules;
+using TownOfExtra.Options.Roles;
 using TownOfUs.Extensions;
+using TownOfUs.Modifiers.Game.Assailant;
 using TownOfUs.Modules.Wiki;
 using TownOfUs.Roles;
 using TownOfUs.Utilities;
@@ -13,6 +17,10 @@ namespace TownOfExtra.Roles.Impostor.Power;
 
 public sealed class EraserRole : ImpostorRole, ITownOfUsRole, IWikiDiscoverable, IDoomable
 {
+    public bool IsModifierApplicable(BaseModifier modifier)
+    {
+        return OptionGroupSingleton<EraserRoleOptions>.Instance.CanBeAssassin || modifier is not AssassinModifier;
+    }
     public string RoleName => "Eraser";
     public string RoleDescription => "Erase the roles of others";
     public string RoleLongDescription => RoleDescription;

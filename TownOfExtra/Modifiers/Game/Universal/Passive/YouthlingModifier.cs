@@ -2,7 +2,9 @@
 using MiraAPI.Utilities.Assets;
 using TownOfExtra.Modules;
 using TownOfExtra.Options;
+using TownOfUs.Extensions;
 using TownOfUs.Interfaces;
+using TownOfUs.Modifiers;
 using TownOfUs.Modifiers.Game;
 using TownOfUs.Modules.Wiki;
 using TownOfUs.Roles.Crewmate;
@@ -12,7 +14,7 @@ using UnityEngine;
 
 namespace TownOfExtra.Modifiers.Game.Universal.Passive;
 
-public class YouthlingModifier : TouGameModifier, IWikiDiscoverable, IColoredModifier, IVisualAppearance, IUnguessableModifier
+public class YouthlingModifier : TouGameModifier, IWikiDiscoverable, IColoredModifier, IVisualAppearance, IUnguessableBasic
 {
     public override string ModifierName => "Youthling";
     public override ModifierFaction FactionType => ModifierFaction.UniversalPassive;

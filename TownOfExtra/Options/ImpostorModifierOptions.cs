@@ -14,7 +14,7 @@ public sealed class ImpostorModifierOptions : AbstractOptionGroup
     public override string GroupName => "Impostor Modifiers";
     public override Func<bool> GroupVisible => () => OptionGroupSingleton<RoleOptions>.Instance.IsClassicRoleAssignment;
     public override Color GroupColor => TownOfUsColors.Impostor;
-    public override bool ShowInModifiersMenu => true;
+    public override MenuCategory ParentMenu => MenuCategory.Modifiers;
     public override uint GroupPriority => 2;
 
     /*----------------------
