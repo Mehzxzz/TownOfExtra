@@ -25,24 +25,21 @@ public class TownOfExtraColours
     public static Color VultureRoleColour => new Color32(79, 24, 0, 255);
     public static Color CannibalRoleColour => new Color32(146, 43, 5, 255);
     public static Color SquidRoleColour => new Color32(146, 84, 197, 255);
-    public static Color ShadowWalkerRoleColour => new Color32(1, 1, 35, 255);
+    public static Color ShadowWalkerRoleColour => new Color32(58, 58, 99, 255);
     public static Color BarbarianRoleColour => new Color32(190, 189, 173, 255);
     public static Color ClownRoleColour => new Color32(252, 67, 212, 255);
     
     public static Color PossessedColour => new Color32(255, 235, 171, 255);
     
     public static Color HeavyWorkloadModifierColour => new Color32(216, 108, 2, 255);
-    public static Color BrittleModifierColour => new Color32(71, 102, 125, 255);
     public static Color ApoliticalModifierColour => new Color32(159, 184, 113, 255);
     public static Color ObservantModifierColour => new Color32(62, 222, 105, 255);
     public static Color ClumsyModifierColour => new Color32(111, 255, 211, 255);
     public static Color ShockwaveModifierColour => new Color32(213, 167, 136, 255);
     public static Color MuteModifierColour => new Color32(96, 47, 94, 255);
     public static Color PanicShieldModifierColour => new Color32(116, 206, 84, 255);
-    public static Color EmbrittlementModifierColour => new Color32(169, 198, 205, 255);
     public static Color YouthlingModifierColour => new Color32(219, 181, 123, 255);
     public static Color ScourgeModifierColour => new Color32(126, 112, 143, 255);
-    public static Color RelentlessModifierColour => new Color32(126, 83, 83, 255);
 
 
     public static Color GetRoleColour(string name)

@@ -20,9 +20,6 @@ public static class ClericCleansePatches
         Remover<PoisonedModifier>(),
         Remover<WaitingOnShiftModifier>(),
         Remover<ImpendingDoomModifier>(),
-        // dream caster
-        Remover<LucidDreamingModifier>(),
-        Remover<WaitingOnLcdModifier>(),
         // poltergeist
         Remover<ScaredModifier>(),
         Remover<PossessedModifier>(),
@@ -30,8 +27,6 @@ public static class ClericCleansePatches
         Remover<PendingEraseModifier>(),
         // shifter
         Remover<WaitingOnShiftModifier>(),
-        // brittle
-        Remover<WaitingOnBrittleModifier>(),
         // squid
         Remover<SlippedModifier>(),
         // shockwaved

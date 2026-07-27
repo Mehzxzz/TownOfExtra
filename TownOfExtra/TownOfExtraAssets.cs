@@ -88,8 +88,6 @@ public static class TownOfExtraAssets
     // --- Modifiers ---
 
     // Passive
-    public static LoadableAsset<Sprite> BrittleModifierIcon =>
-        new LoadableResourceAsset($"{CrewModModIconPath}.BrittleModifierIcon.png");
     public static LoadableAsset<Sprite> HeavyWorkloadModifierIcon =>
         new LoadableResourceAsset($"{CrewModModIconPath}.HeavyWorkloadModifierIcon.png", 200);
     public static LoadableAsset<Sprite> RoutineModifierIcon =>
@@ -98,8 +96,6 @@ public static class TownOfExtraAssets
         new LoadableResourceAsset($"{CrewModModIconPath}.ObservantModifierIcon.png", 200);
     public static LoadableAsset<Sprite> ClumsyModifierIcon =>
         new LoadableResourceAsset($"{CrewModModIconPath}.ClumsyModifierIcon.png", 200);
-    public static LoadableAsset<Sprite> RelentlessModifierIcon =>
-        new LoadableResourceAsset($"{CrewModModIconPath}.RelentlessModifierIcon.png", 200);
     
     // Passive
     public static LoadableAsset<Sprite> PanicShieldModifierIcon =>
@@ -161,8 +157,6 @@ public static class TownOfExtraAssets
     // Power
     public static LoadableAsset<Sprite> ConjurerRoleIcon =>
         new LoadableResourceAsset($"{ImpRoleIconPath}.ConjurerRoleIcon.png", 200);
-    public static LoadableAsset<Sprite> DreamCasterRoleIcon =>
-        new LoadableResourceAsset($"{ImpRoleIconPath}.DreamCasterRoleIcon.png", 200);
     public static LoadableAsset<Sprite> EraserRoleIcon =>
         new LoadableResourceAsset($"{ImpRoleIconPath}.EraserRoleIcon.png", 200);
     public static LoadableAsset<Sprite> VinculatorRoleIcon =>
@@ -181,8 +175,6 @@ public static class TownOfExtraAssets
     // Utility
     public static LoadableAsset<Sprite> ShockwaveModifierIcon =>
         new LoadableResourceAsset($"{ImpModModIconPath}.ShockwaveModifierIcon.png");
-    public static LoadableAsset<Sprite> EmbrittlementModifierIcon =>
-        new LoadableResourceAsset($"{ImpModModIconPath}.EmbrittlementModifierIcon.png", 200);
     
     // Passive
     public static LoadableAsset<Sprite> RebirthModifierIcon =>
@@ -263,7 +255,6 @@ public static class TownOfExtraAssets
         new LoadableResourceAsset($"{NeutRoleIconPath}.SquidRoleIcon.png", 200);
     public static LoadableAsset<Sprite> ShadowWalkerRoleIcon =>
         new LoadableResourceAsset($"{NeutRoleIconPath}.ShadowWalkerRoleIcon.png", 200);
-    public static LoadableAsset<Sprite>MurdererRoleIcon => new LoadableResourceAsset($"{NeutRoleIconPath}.Neutral.png");
     public static LoadableAsset<Sprite> CannibalRoleIcon =>
         new LoadableResourceAsset($"{NeutRoleIconPath}.CannibalRoleIcon.png");
     public static LoadableAsset<Sprite> BarbarianRoleIcon =>

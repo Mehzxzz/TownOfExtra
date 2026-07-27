@@ -73,7 +73,7 @@ public class TownOfExtraPlugin : BasePlugin, IMiraPlugin
         TouLocale.TouLocalization[SupportedLangs.English].TryAdd("DiedToMiscalculated", "Miscalculated");
         TouLocale.TouLocalization[SupportedLangs.English].TryAdd("DiedToSlain", "Slain");
         TouLocale.TouLocalization[SupportedLangs.English].TryAdd("DiedToPunished", "Punished");
-        TouLocale.TouLocalization[SupportedLangs.English].TryAdd("DiedToMassacred", "Massacred");
+        TouLocale.TouLocalization[SupportedLangs.English].TryAdd("DiedToMurdered", "Murdered");
 
         // ------------------------
         // Wiki Edits
@@ -81,7 +81,7 @@ public class TownOfExtraPlugin : BasePlugin, IMiraPlugin
         
         TouLocale.TouLocalization[SupportedLangs.English]
                 ["TouRoleClericCleanseWikiDescription"] =
-            "Remove all negative effects on a player. (Douse, Hack, Infect, Blackmail, Blind, Flash, Hypnosis, Poisoned, Pending Shift, Doom, Lucid Dreaming, Pending Lucid Dream, Scared, Possessed, Pending Erase, Pending Embrittlement, Slipped, Shockwaved)";
+            "Remove all negative effects on a player. (Douse, Hack, Infect, Blackmail, Blind, Flash, Hypnosis, Poisoned, Pending Shift, Doom, Scared, Possessed, Pending Erase, Slipped, Shockwaved)";
         
         // ------------------------
         // Doomsayer Hints

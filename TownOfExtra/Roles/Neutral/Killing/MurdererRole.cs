@@ -7,10 +7,12 @@ using MiraAPI.GameOptions;
 using MiraAPI.Roles;
 using MiraAPI.Utilities;
 using TownOfExtra.Options.Roles;
+using TownOfUs;
 using TownOfUs.Assets;
 using TownOfUs.Extensions;
 using TownOfUs.Modules.Wiki;
 using TownOfUs.Roles;
+using TownOfUs.Roles.Crewmate;
 using TownOfUs.Roles.Neutral;
 using TownOfUs.Utilities;
 using UnityEngine;
@@ -19,32 +21,28 @@ namespace TownOfExtra.Roles.Neutral.Killing;
 
 public sealed class MurdererRole(IntPtr cppPtr) : NeutralRole(cppPtr), ITownOfUsRole, IWikiDiscoverable, IDoomable, ICrewVariant
 {
-    public string RoleName => "Cannibal";
-    public string RoleDescription => "Kill everyone!";
+    public string RoleName => "Murderer";
+    public string RoleDescription => "Murder them all!";
     public string RoleLongDescription => RoleDescription;
-    public Color RoleColor => TownOfExtraColours.CannibalRoleColour;
+    public Color RoleColor => TownOfUsColors.Neutral;
     public ModdedRoleTeams Team => ModdedRoleTeams.Custom;
     public RoleAlignment RoleAlignment => RoleAlignment.NeutralKilling;
-    public DoomableType DoomHintType => DoomableType.Death;
+    public DoomableType DoomHintType => DoomableType.Relentless;
     public RoleBehaviour CrewVariant =>
-        RoleManager.Instance.GetRole((RoleTypes)RoleId.Get<SheriffRole>());
-
-    public static List<byte> KilledPlayers = new List<byte>();
-    public static byte? MurdererId = null;
+        RoleManager.Instance.GetRole((RoleTypes)RoleId.Get<OfficerRole>());
 
     public string GetAdvancedDescription()
     {
         return
-            "The Murderer is a Neutral Killing role that is a standard Neutral Killer, having to kill everyone to win while being able to sabotage or vent too." +
+            $"The Murderer is a Neutral Killing role that is a standard Neutral Killer, having to kill everyone to win{(OptionGroupSingleton<MurdererRoleOptions>.Instance.CanVent ? " while being able to vent too." : ".")}" +
             MiscUtils.AppendOptionsText(GetType());
     }
 
     public CustomRoleConfiguration Configuration => new CustomRoleConfiguration(this)
     {
-        MaxRoleCount = 1,
-        Icon = TownOfExtraAssets.MurdererRoleIcon,
+        IconTmp = MiraAPI.Utilities.Assets.TmpSpriteUtils.CreateSpriteAsset(TouRoleIcons.Neutral.LoadAsset(), "ToEx.Role.Neutral.Murderer", 1.45f),
+        Icon = TouRoleIcons.Neutral,
         CanUseVent = OptionGroupSingleton<MurdererRoleOptions>.Instance.CanVent,
-        CanUseSabotage = OptionGroupSingleton<MurdererRoleOptions>.Instance.CanSabotage
         GhostRole = (RoleTypes)RoleId.Get<NeutralGhostRole>()
     };
 
@@ -55,7 +53,7 @@ public sealed class MurdererRole(IntPtr cppPtr) : NeutralRole(cppPtr), ITownOfUs
         {
             return new List<CustomButtonWikiDescription>
             {
-                new("Murder", "Kill a player.", TownOfExtraAssets.PhAttack)
+                new("Murder", "Kill a player.", TownOfExtraAssets.AttackPh)
             };
         }
     }

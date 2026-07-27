@@ -440,8 +440,19 @@
         "\r<b>TownOfExtra has updated to v1.2.5</b>",
         "\n\nThank you for playing the mod!",
         "\n\n★ <link=https://discord.gg/y2GN5Q4fzb>Join Discord</link> ★ <link=https://toex.freehosting.dev/docs>Role/Modifier Info</link> ★",
+        "\n\n\r<size=105%>New Roles:",
+        "\n- A new Neutral Killing role has been added: Murderer",
+        "\n\n\r<size=105%>Removed roles/modifiers",
+        "\n- Dream Caster",
+        "\n- Brittle",
+        "\n- Embrittlement",
+        
         "\n\n\r<size=105%>Additions:</size>",
-        "\n- Added an update checker"
+        "\n- Added an update checker",
+        "\n\n\r<size=105%>Changes:</size>",
+        "\n- Removed custom death message for bloodlust",
+        "\n\n\r<size=105%>Bugfixes:</size>",
+        "\n- Fixed bloodlust being able to kill its own team"
       ]
     }
   ]
