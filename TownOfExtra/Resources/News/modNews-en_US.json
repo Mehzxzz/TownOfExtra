@@ -431,7 +431,7 @@
       ]
     },
     {
-      "Date": "2026-07-14T16:10:00Z",
+      "Date": "2026-07-27T16:18:37Z",
       "Number": "125",
       "ShortTitle": "TownOfExtra v1.2.5",
       "Title": "TownOfExtra v1.2.5",
@@ -442,6 +442,7 @@
         "\n\n★ <link=https://discord.gg/y2GN5Q4fzb>Join Discord</link> ★ <link=https://toex.freehosting.dev/docs>Role/Modifier Info</link> ★",
         "\n\n\r<size=105%>New Roles:",
         "\n- A new Neutral Killing role has been added: Murderer",
+        "\n- A new Crewmate Protective role has been added: Surgeon",
         "\n\n\r<size=105%>Removed roles/modifiers",
         "\n- Dream Caster",
         "\n- Brittle",
@@ -451,9 +452,11 @@
         "\n- Added an update checker",
         "\n\n\r<size=105%>Changes:</size>",
         "\n- Removed custom death message for bloodlust",
-        "\n- Reworked trickster into a nk",
+        "\n- (soon) Reworked trickster into a nk",
+        "\n- Removed striker's locate msg saving",
         "\n\n\r<size=105%>Bugfixes:</size>",
-        "\n- Fixed bloodlust being able to kill its own team"
+        "\n- Fixed bloodlust being able to kill its own team",
+        "\n- Fixed striker being able to strike its own team"
       ]
     }
   ]
