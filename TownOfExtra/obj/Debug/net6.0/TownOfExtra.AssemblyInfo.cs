@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyDescriptionAttribute("An addon to Town of Us: Mira including extra roles and features!")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+cf40daa2da24717b07e2fa1871feec3d46a45080")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+8d571ac284e3cb5f73cdee8234b90787b939ba6e")]
 [assembly: System.Reflection.AssemblyProductAttribute("TownOfExtra")]
 [assembly: System.Reflection.AssemblyTitleAttribute("TownOfExtra")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

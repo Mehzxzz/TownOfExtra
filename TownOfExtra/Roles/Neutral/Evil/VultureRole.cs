@@ -6,6 +6,7 @@ using TownOfExtra.Options.Roles;
 using Il2CppInterop.Runtime.Attributes;
 using MiraAPI.GameOptions;
 using MiraAPI.Roles;
+using MiraAPI.Utilities;
 using TownOfExtra.Modules;
 using TownOfUs;
 using TownOfUs.Extensions;
@@ -80,6 +81,10 @@ public sealed class VultureRole(IntPtr cppPtr) : NeutralRole(cppPtr), ITownOfUsR
         }
     }
     
+    private static VultureWinType WinType => OptionGroupSingleton<VultureRoleOptions>.Instance.WinType;
+
+    public bool HasMetWinGoal => DeadBodiesEaten >= OptionGroupSingleton<VultureRoleOptions>.Instance.EatenBodiesNeeded;
+
     public bool WinConditionMet()
     {
         if (Player.HasDied())
@@ -87,12 +92,17 @@ public sealed class VultureRole(IntPtr cppPtr) : NeutralRole(cppPtr), ITownOfUsR
             return false;
         }
 
-        return DeadBodiesEaten >= OptionGroupSingleton<VultureRoleOptions>.Instance.EatenBodiesNeeded;
+        if (!HasMetWinGoal)
+        {
+            return false;
+        }
+
+        return WinType == VultureWinType.WinAlone || Helpers.GetAlivePlayers().Count <= 1;
     }
 
     public override bool DidWin(GameOverReason gameOverReason)
     {
-        return WinConditionMet();
+        return HasMetWinGoal;
     }
     
     public override bool CanUse(IUsable usable)

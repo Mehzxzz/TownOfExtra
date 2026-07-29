@@ -6,6 +6,7 @@ using Il2CppInterop.Runtime.Attributes;
 using MiraAPI.GameOptions;
 using MiraAPI.Modifiers;
 using MiraAPI.Roles;
+using MiraAPI.Utilities;
 using TownOfExtra.Modifiers.Excluded;
 using TownOfExtra.Modules;
 using TownOfExtra.Options.Roles;
@@ -103,28 +104,43 @@ public sealed class PoltergeistRole(IntPtr cppPtr) : NeutralRole(cppPtr), ITownO
         }
     }
     
+    private static PoltergeistWinType WinType => OptionGroupSingleton<PoltergeistRoleOptions>.Instance.WinType;
+
+    public bool HasMetWinGoal
+    {
+        get
+        {
+            int possessedCount = 0;
+            foreach (var p in PlayerControl.AllPlayerControls)
+            {
+                if (p.HasModifier<PossessedModifier>())
+                {
+                    possessedCount++;
+                }
+            }
+
+            return possessedCount >= OptionGroupSingleton<PoltergeistRoleOptions>.Instance.WinPossesses;
+        }
+    }
+
     public bool WinConditionMet()
     {
         if (Player.HasDied())
         {
             return false;
         }
-        
-        int possessedCount = 0;
-        foreach (var p in PlayerControl.AllPlayerControls)
+
+        if (!HasMetWinGoal)
         {
-            if (p.HasModifier<PossessedModifier>())
-            {
-                possessedCount++;
-            }
+            return false;
         }
 
-        return possessedCount >= OptionGroupSingleton<PoltergeistRoleOptions>.Instance.WinPossesses;
+        return WinType == PoltergeistWinType.WinAlone || Helpers.GetAlivePlayers().Count <= 1;
     }
 
     public override bool DidWin(GameOverReason gameOverReason)
     {
-        return WinConditionMet();
+        return HasMetWinGoal;
     }
     
     public override bool CanUse(IUsable usable)

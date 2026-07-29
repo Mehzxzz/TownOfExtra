@@ -5,6 +5,7 @@ using AmongUs.GameOptions;
 using Il2CppInterop.Runtime.Attributes;
 using MiraAPI.GameOptions;
 using MiraAPI.Roles;
+using MiraAPI.Utilities;
 using TownOfExtra.Modules;
 using TownOfExtra.Options.Roles;
 using TownOfUs;
@@ -84,6 +85,10 @@ public sealed class TricksterRole(IntPtr cppPtr) : NeutralRole(cppPtr), ITownOfU
         }
     }
     
+    private static TricksterWinType WinType => OptionGroupSingleton<TricksterRoleOptions>.Instance.WinType;
+
+    public bool HasMetWinGoal => FakeBodiesReported >= OptionGroupSingleton<TricksterRoleOptions>.Instance.ReportsNeeded;
+
     public bool WinConditionMet()
     {
         if (Player.HasDied())
@@ -91,12 +96,17 @@ public sealed class TricksterRole(IntPtr cppPtr) : NeutralRole(cppPtr), ITownOfU
             return false;
         }
 
-        return FakeBodiesReported >= OptionGroupSingleton<TricksterRoleOptions>.Instance.ReportsNeeded;
+        if (!HasMetWinGoal)
+        {
+            return false;
+        }
+
+        return WinType == TricksterWinType.WinAlone || Helpers.GetAlivePlayers().Count <= 1;
     }
 
     public override bool DidWin(GameOverReason gameOverReason)
     {
-        return WinConditionMet();
+        return HasMetWinGoal;
     }
     
     public override bool CanUse(IUsable usable)

@@ -15,4 +15,13 @@ public sealed class TricksterRoleOptions : AbstractRoleOptionGroup<TricksterRole
     public float PlaceCooldown { get; set; } = 32.5f;
     [ModdedNumberOption("Reports needed to win", 2f, 15f)]
     public float ReportsNeeded { get; set; } = 5f;
+    
+    [ModdedEnumOption("When Victorious", typeof(TricksterWinType), ["Win Alone", "Leave In Victory"])]
+    public TricksterWinType WinType { get; set; } = TricksterWinType.WinAlone;
+}
+
+public enum TricksterWinType
+{
+    WinAlone,
+    LeaveInVictory,
 }

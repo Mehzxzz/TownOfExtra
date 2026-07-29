@@ -18,11 +18,19 @@ public sealed class PoltergeistRoleOptions : AbstractRoleOptionGroup<Poltergeist
     [ModdedNumberOption("# of Possesses to win", 1f, 15f)]
     public float WinPossesses { get; set; } = 5f;
     
-    [ModdedNumberOption("Vision Multiplier (1=off)", 0f, 1f, 0.05f, MiraNumberSuffixes.Multiplier, "0.00")]
+    [ModdedNumberOption("Scared Vision Multiplier (1=off)", 0f, 1f, 0.05f, MiraNumberSuffixes.Multiplier, "0.00")]
     public float ScaredVisDebuffMulti { get; set; } = 0.80f;
 
-    [ModdedNumberOption("Possessed Multiplier (1=off)", 0f, 1f, 0.05f, MiraNumberSuffixes.Multiplier, "0.00")]
+    [ModdedNumberOption("Possessed Vision Multiplier (1=off)", 0f, 1f, 0.05f, MiraNumberSuffixes.Multiplier, "0.00")]
     public float PossessedVisDebuffMulti { get; set; } = 0.65f;
-    [ModdedNumberOption("Speed Multiplier (1=off)", 0f, 1f, 0.05f, MiraNumberSuffixes.Multiplier, "0.00")]
-    public float SpeedDebuffMultiplier { get; set; } = 0.80f;
+    
+    [ModdedEnumOption("When Victorious", typeof(PoltergeistWinType), ["Win Alone", "Kill possessed players (victorious)", "Leave In Victory"])]
+    public PoltergeistWinType WinType { get; set; } = PoltergeistWinType.WinAlone;
+}
+
+public enum PoltergeistWinType
+{
+    WinAlone,
+    KillPossessed,
+    LeaveInVictory,
 }

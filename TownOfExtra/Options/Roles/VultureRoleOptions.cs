@@ -17,4 +17,13 @@ public sealed class VultureRoleOptions : AbstractRoleOptionGroup<VultureRole>
     
     [ModdedToggleOption("Turn into Amnesiac when cannot win")]
     public bool TurnIntoAmne { get; set; } = true;
+
+    [ModdedEnumOption("When Victorious", typeof(VultureWinType), ["Win Alone", "Leave In Victory"])]
+    public VultureWinType WinType { get; set; } = VultureWinType.WinAlone;
+}
+
+public enum VultureWinType
+{
+    WinAlone,
+    LeaveInVictory,
 }

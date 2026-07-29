@@ -74,6 +74,7 @@ public class TownOfExtraPlugin : BasePlugin, IMiraPlugin
         TouLocale.TouLocalization[SupportedLangs.English].TryAdd("DiedToSlain", "Slain");
         TouLocale.TouLocalization[SupportedLangs.English].TryAdd("DiedToPunished", "Punished");
         TouLocale.TouLocalization[SupportedLangs.English].TryAdd("DiedToMurdered", "Murdered");
+        TouLocale.TouLocalization[SupportedLangs.English].TryAdd("DiedToPossessed", "Possessed");
 
         // ------------------------
         // Wiki Edits

@@ -1,5 +1,4 @@
-﻿using System.Collections.Generic;
-using System.Linq;
+﻿using System.Linq;
 using MiraAPI.GameEnd;
 using MiraAPI.GameOptions;
 using MiraAPI.Hud;
@@ -10,7 +9,10 @@ using TownOfExtra.Buttons;
 using TownOfExtra.Networking.Global;
 using TownOfExtra.Options.Roles;
 using TownOfExtra.Roles.Neutral.Evil;
+using TownOfUs.Events;
 using TownOfUs.GameOver;
+using TownOfUs.Modifiers;
+using TownOfUs.Modules.Localization;
 using TownOfUs.Utilities;
 using UnityEngine;
 
@@ -48,13 +50,51 @@ public class TricksterRpcs
         
         if (AmongUsClient.Instance.AmHost)
         {
-            List<NetworkedPlayerInfo> winners = new List<NetworkedPlayerInfo>();
-            foreach (var trickster in CustomRoleUtils.GetActiveRolesOfType<TricksterRole>().Where(t => t.WinConditionMet()))
-            {
-                winners.Add(trickster.Player.Data);
-            }
+            var winners = CustomRoleUtils.GetActiveRolesOfType<TricksterRole>()
+                .Where(t => t.WinConditionMet()).ToList();
 
-            CustomGameOver.Trigger<NeutralGameOver>(winners);
+            if (winners.Count > 0)
+            {
+                CustomGameOver.Trigger<NeutralGameOver>(winners.Select(v => v.Player.Data).ToList());
+            }
+            else
+            {
+                var trickster = CustomRoleUtils.GetActiveRolesOfType<TricksterRole>()
+                    .FirstOrDefault(v =>
+                        !v.Player.HasDied() && 
+                        TricksterRole.FakeBodiesReported >= OptionGroupSingleton<TricksterRoleOptions>.Instance.ReportsNeeded && 
+                        OptionGroupSingleton<TricksterRoleOptions>.Instance.WinType is TricksterWinType.LeaveInVictory);
+                
+                if (trickster == null) return;
+                
+                foreach (var plr in PlayerControl.AllPlayerControls)
+                {
+                    if (trickster.Player == plr)
+                    {
+                        plr.RpcSendNotification(
+                            $"You have successfully won as the {TownOfExtraColours.TricksterRoleColour.ToTextColor()}Trickster</color>, as you have tricked enough players!",
+                            "TricksterRoleIcon",
+                            "NeutRoleIcon",
+                            200
+                        );
+                    }
+                    else
+                    {
+                        plr.RpcSendNotification(
+                            $"The {TownOfExtraColours.TricksterRoleColour.ToTextColor()}Trickster</color>, {trickster.Player.Data.PlayerName}, has won, as they have tricked enough players!",
+                            "TricksterRoleIcon",
+                            "NeutRoleIcon",
+                            200
+                        );
+                    }
+                }
+
+                DeathHandlerModifier.UpdateDeathHandlerImmediate(trickster.Player, TouLocale.Get("DiedToWinning"),
+                    DeathEventHandlers.CurrentRound, DeathHandlerOverride.SetFalse,
+                    lockInfo: DeathHandlerOverride.SetTrue);
+                
+                trickster.Player.Exiled();
+            }
         }
     }
 

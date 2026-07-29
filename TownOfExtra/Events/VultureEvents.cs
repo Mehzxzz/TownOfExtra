@@ -1,5 +1,4 @@
-﻿using System.Collections.Generic;
-using System.Linq;
+﻿using System.Linq;
 using TownOfExtra.Roles.Neutral.Evil;
 using MiraAPI.Events;
 using MiraAPI.Events.Vanilla.Gameplay;
@@ -9,9 +8,13 @@ using MiraAPI.Roles;
 using MiraAPI.Utilities;
 using TownOfExtra.Events.Custom;
 using TownOfExtra.Networking;
+using TownOfExtra.Networking.Global;
 using TownOfExtra.Options.Roles;
 using TownOfUs;
+using TownOfUs.Events;
 using TownOfUs.GameOver;
+using TownOfUs.Modifiers;
+using TownOfUs.Modules.Localization;
 using TownOfUs.Utilities;
 using Color = UnityEngine.Color;
 using Vector3 = UnityEngine.Vector3;
@@ -56,10 +59,49 @@ public class VultureEvents
 
         if (AmongUsClient.Instance.AmHost)
         {
-            List<NetworkedPlayerInfo> winners = new List<NetworkedPlayerInfo>();
-            foreach (var vulture in CustomRoleUtils.GetActiveRolesOfType<VultureRole>().Where(t => t.WinConditionMet()))
-                winners.Add(vulture.Player.Data);
-            CustomGameOver.Trigger<NeutralGameOver>(winners);
+            var winners = CustomRoleUtils.GetActiveRolesOfType<VultureRole>()
+                .Where(t => t.WinConditionMet()).ToList();
+
+            if (winners.Count > 0)
+            {
+                CustomGameOver.Trigger<NeutralGameOver>(winners.Select(v => v.Player.Data).ToList());
+            }
+            else
+            {
+                var vulture = CustomRoleUtils.GetActiveRolesOfType<VultureRole>()
+                    .FirstOrDefault(v =>
+                        !v.Player.HasDied() && 
+                        VultureRole.DeadBodiesEaten >= OptionGroupSingleton<VultureRoleOptions>.Instance.EatenBodiesNeeded && 
+                        OptionGroupSingleton<VultureRoleOptions>.Instance.WinType is VultureWinType.LeaveInVictory);
+                
+                if (vulture == null) return;
+                
+                foreach (var plr in PlayerControl.AllPlayerControls)
+                {
+                    if (vulture.Player == plr)
+                    {
+                        plr.RpcSendNotification(
+                            $"You have successfully won as the {TownOfExtraColours.VultureRoleColour.ToTextColor()}Vulture</color>, as you have eaten enough bodies!",
+                            "VultureEatButton",
+                            "NeutButton"
+                        );
+                    }
+                    else
+                    {
+                        plr.RpcSendNotification(
+                            $"The {TownOfExtraColours.VultureRoleColour.ToTextColor()}Vulture</color>, {vulture.Player.Data.PlayerName}, has won, as they have eaten enough bodies!",
+                            "VultureEatButton",
+                            "NeutButton"
+                        );
+                    }
+                }
+
+                DeathHandlerModifier.UpdateDeathHandlerImmediate(vulture.Player, TouLocale.Get("DiedToWinning"),
+                    DeathEventHandlers.CurrentRound, DeathHandlerOverride.SetFalse,
+                    lockInfo: DeathHandlerOverride.SetTrue);
+                
+                vulture.Player.Exiled();
+            }
         }
     }
 
