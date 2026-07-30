@@ -457,7 +457,8 @@
         "\n- Removed striker's locate msg saving",
         "\n\n\r<size=105%>Bugfixes:</size>",
         "\n- Fixed bloodlust being able to kill its own team",
-        "\n- Fixed striker being able to strike its own team"
+        "\n- Fixed striker being able to strike its own team",
+        "\n- Fixed conjurer being able to place rocks in meetings"
       ]
     }
   ]

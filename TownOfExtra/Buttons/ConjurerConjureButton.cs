@@ -66,6 +66,12 @@ public sealed class ConjurerConjureButton : TownOfUsRoleButton<ConjurerRole>
                     yield return null;
                 }
 
+                if (MeetingHud.Instance)
+                {
+                    ExitPlacingMode();
+                    yield return null;
+                }
+
                 var screenToWorldPoint = camera.ScreenToWorldPoint(Input.mousePosition);
 
                 if (_preview != null)
@@ -115,72 +121,76 @@ public sealed class ConjurerConjureButton : TownOfUsRoleButton<ConjurerRole>
                 yield return null;
             }
         }
-        else
+
+        while (true)
         {
-            while (true)
+            if (!_placing) yield break;
+
+            if (PlayerControl.LocalPlayer.inVent)
             {
-                if (!_placing) yield break;
-
-                if (PlayerControl.LocalPlayer.inVent)
-                {
-                    ExitPlacingMode();
-                    yield return null;
-                }
-
-                if (PlayerControl.LocalPlayer.Data.Disconnected || PlayerControl.LocalPlayer.Data.IsDead)
-                {
-                    ExitPlacingMode();
-                    yield return null;
-                }
-
-                var screenToWorldPoint = camera.ScreenToWorldPoint(Input.mousePosition);
-
-                if (_preview != null)
-                {
-                    var loc = screenToWorldPoint;
-                    loc.z = 0f;
-                    _preview.transform.position = loc;
-                }
-
-                if (Input.GetMouseButtonDown(1))
-                {
-                    if (_fallen)
-                    {
-                        _fallen = false;
-                        var renderer = _preview.GetComponent<SpriteRenderer>();
-                        renderer.sprite = TownOfExtraAssets.ConjurerRockSprite.LoadAsset();
-                    }
-                    else
-                    {
-                        _fallen = true;
-                        var renderer = _preview.GetComponent<SpriteRenderer>();
-                        renderer.sprite = TownOfExtraAssets.ConjurerRockSpriteFallen.LoadAsset();
-                    }
-                }
-
-                if (Input.GetKeyDown(KeyCode.Escape))
-                {
-                    ExitPlacingMode();
-                    yield break;
-                }
-
-                if (Input.GetMouseButtonDown(0))
-                {
-                    screenToWorldPoint.z = 0f;
-
-                    ConjurerRpcs.RpcPlaceRock(PlayerControl.LocalPlayer, screenToWorldPoint.x, screenToWorldPoint.y,
-                        _fallen);
-
-                    ExitPlacingMode();
-
-                    EffectActive = true;
-                    Timer = EffectDuration;
-
-                    yield break;
-                }
-
+                ExitPlacingMode();
                 yield return null;
             }
+
+            if (PlayerControl.LocalPlayer.Data.Disconnected || PlayerControl.LocalPlayer.Data.IsDead)
+            {
+                ExitPlacingMode();
+                yield return null;
+            }
+
+            if (MeetingHud.Instance)
+            {
+                ExitPlacingMode();
+                yield return null;
+            }
+
+            var screenToWorldPoint = camera.ScreenToWorldPoint(Input.mousePosition);
+
+            if (_preview != null)
+            {
+                var loc = screenToWorldPoint;
+                loc.z = 0f;
+                _preview.transform.position = loc;
+            }
+
+            if (Input.GetMouseButtonDown(1))
+            {
+                if (_fallen)
+                {
+                    _fallen = false;
+                    var renderer = _preview.GetComponent<SpriteRenderer>();
+                    renderer.sprite = TownOfExtraAssets.ConjurerRockSprite.LoadAsset();
+                }
+                else
+                {
+                    _fallen = true;
+                    var renderer = _preview.GetComponent<SpriteRenderer>();
+                    renderer.sprite = TownOfExtraAssets.ConjurerRockSpriteFallen.LoadAsset();
+                }
+            }
+
+            if (Input.GetKeyDown(KeyCode.Escape))
+            {
+                ExitPlacingMode();
+                yield break;
+            }
+
+            if (Input.GetMouseButtonDown(0))
+            {
+                screenToWorldPoint.z = 0f;
+
+                ConjurerRpcs.RpcPlaceRock(PlayerControl.LocalPlayer, screenToWorldPoint.x, screenToWorldPoint.y,
+                    _fallen);
+
+                ExitPlacingMode();
+
+                EffectActive = true;
+                Timer = EffectDuration;
+
+                yield break;
+            }
+
+            yield return null;
         }
     }
 
