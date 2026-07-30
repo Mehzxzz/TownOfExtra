@@ -72,18 +72,19 @@ public class VinculatorEvents
     [RegisterEvent]
     public static void EjectionEventHandler(EjectionEvent e)
     {
-        var exiled = e.ExileController.initData.networkedPlayer.Object;
+        var networkedPlayer = e.ExileController.initData?.networkedPlayer;
+        if (networkedPlayer == null) return;
 
-        if (exiled == null ||
-            e.ExileController.initData.networkedPlayer == null ||
-            !exiled.HasModifier<LinkedModifier>())
-            return;
+        var exiled = networkedPlayer.Object;
+
+        if (exiled == null || !exiled.HasModifier<LinkedModifier>()) return;
 
         foreach (var player in PlayerControl.AllPlayerControls)
         {
             if (player.HasModifier<LinkedModifier>())
             {
                 player.RpcSpecialMurder(player, ignoreShield:true, createDeadBody:false, causeOfDeath:"Unbound");
+                
                 foreach (var p in PlayerControl.AllPlayerControls)
                 {
                     if (p.Data.Role is VinculatorRole)
