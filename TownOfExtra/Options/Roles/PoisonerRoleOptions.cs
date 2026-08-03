@@ -1,7 +1,7 @@
 ﻿using MiraAPI.GameOptions;
 using MiraAPI.GameOptions.Attributes;
 using MiraAPI.Utilities;
-using TownOfExtra.Roles.Impostor.Killing;
+using TownOfExtra.Roles.Neutral.Killing;
 
 namespace TownOfExtra.Options.Roles;
 
@@ -15,4 +15,6 @@ public sealed class PoisonerRoleOptions : AbstractRoleOptionGroup<PoisonerRole>
     public float PoisonLength { get; set; } = 15f;
     [ModdedNumberOption("Poison Delay", 0f, 20f, 2.5f, MiraNumberSuffixes.Seconds)]
     public float PoisonDelay { get; set; } = 5f;
+    [ModdedToggleOption("Can Vent")]
+    public bool CanVent  { get; set; } = true;
 }
