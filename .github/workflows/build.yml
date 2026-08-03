@@ -1,4 +1,4 @@
-name: CI
+name: Build
 
 on:
   workflow_dispatch:
@@ -16,7 +16,7 @@ jobs:
           path: |
             ~/.nuget/packages
             ~/.cache/bepinex
-          key: ${{ runner.os }}-nuget-${{ hashFiles('**/*.csproj', '**/packages.lock.json') }}
+          key: ${{ runner.os }}-nuget-${{ hashFiles('**/*.csproj') }}
           restore-keys: |
             ${{ runner.os }}-nuget-
 
@@ -29,8 +29,6 @@ jobs:
 
       - uses: actions/upload-artifact@v4
         with:
-          name: TownOfExtra.dll
-          path: |
-            **/bin/Release/**/TownOfExtra.dll
-            bin/Release/**/TownOfExtra.dll
+          name: TownOfExtra
+          path: "**/bin/Release/**"
           retention-days: 7
