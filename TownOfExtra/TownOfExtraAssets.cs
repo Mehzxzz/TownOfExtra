@@ -143,8 +143,6 @@ public static class TownOfExtraAssets
         new LoadableResourceAsset($"{ImpRoleIconPath}.SignalJammerRoleIcon.png", 200);
 
     // Killing
-    public static LoadableAsset<Sprite> PoisonerRoleIcon =>
-        new LoadableResourceAsset($"{ImpRoleIconPath}.PoisonerRoleIcon.png");
     public static LoadableAsset<Sprite> KnifeThrowerRoleIcon =
         new LoadableResourceAsset($"{ImpRoleIconPath}.KnifeThrowerRoleIcon.png");
     public static LoadableAsset<Sprite> StrikerRoleIcon =>
@@ -192,8 +190,6 @@ public static class TownOfExtraAssets
         new LoadableResourceAsset($"{ImpButtonPath}.HolographerHolographButton.png");
     public static LoadableAsset<Sprite> SignalJammerJamButton =>
         new LoadableResourceAsset($"{ImpButtonPath}.SignalJammerJamButton.png");
-    public static LoadableAsset<Sprite> PoisonerPoisonButton =>
-        new LoadableResourceAsset($"{ImpButtonPath}.PoisonerPoisonButton.png");
     public static LoadableAsset<Sprite> StrikerLocateButton =>
         new LoadableResourceAsset($"{ImpButtonPath}.StrikerLocateButton.png", 683);
     public static LoadableAsset<Sprite> StrikerStrikeButton =>
@@ -251,6 +247,8 @@ public static class TownOfExtraAssets
         new LoadableResourceAsset($"{NeutRoleIconPath}.ShifterRoleIcon.png");
     
     // Killing
+    public static LoadableAsset<Sprite> PoisonerRoleIcon =>
+        new LoadableResourceAsset($"{ImpRoleIconPath}.PoisonerRoleIcon.png");
     public static LoadableAsset<Sprite> SquidRoleIcon =>
         new LoadableResourceAsset($"{NeutRoleIconPath}.SquidRoleIcon.png", 200);
     public static LoadableAsset<Sprite> ShadowWalkerRoleIcon =>
@@ -263,7 +261,8 @@ public static class TownOfExtraAssets
         new LoadableResourceAsset($"{NeutRoleIconPath}.ClownRoleIcon.png", 200);
 
     // --- Buttons ---
-
+    public static LoadableAsset<Sprite> PoisonerPoisonButton =>
+        new LoadableResourceAsset($"{ImpButtonPath}.PoisonerPoisonButton.png");
     public static LoadableAsset<Sprite> TricksterSampleButton =>
         new LoadableResourceAsset($"{NeutButtonPath}.TricksterSampleButton.png");
     public static LoadableAsset<Sprite> TricksterPlaceButton =>
