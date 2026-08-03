@@ -24,7 +24,7 @@ public sealed class PoisonerRole(IntPtr cppPtr) : NeutralRole(cppPtr), ITownOfUs
     public string RoleName => "Poisoner";
     public string RoleDescription => "Inflict deadly toxin on others.";
     public string RoleLongDescription => RoleDescription;
-    public Color RoleColor => TownOfUsColors.Neutral;
+    public Color RoleColor => TownOfExtraColours.PoisonerRoleColour;
     public ModdedRoleTeams Team => ModdedRoleTeams.Custom;
     public RoleAlignment RoleAlignment => RoleAlignment.NeutralKilling;
     public DoomableType DoomHintType => DoomableType.Relentless;
