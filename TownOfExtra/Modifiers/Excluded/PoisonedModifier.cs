@@ -15,23 +15,9 @@ public sealed class PoisonedModifier(PlayerControl poisoner) : TimedModifier
 {
     public override string ModifierName => "Poisoned";
     public override float Duration => OptionGroupSingleton<PoisonerRoleOptions>.Instance.PoisonLength;
+    public bool HideOnUi => true;
     public override LoadableAsset<Sprite> ModifierIcon => TownOfExtraAssets.PoisonedModifierIcon;
 
-    public override string GetDescription()
-    {
-        return $"Time until death: {TimeRemaining:F1}s";
-    }
-
-    public override void OnActivate()
-    {
-        if (Player != PlayerControl.LocalPlayer) return;
-        
-        Coroutines.Start(MiscUtils.CoFlash(TownOfExtraColours.PoisonColour, Duration));
-        var notif = Helpers.CreateAndShowNotification(
-            $"You have been {TownOfExtraColours.PoisonColour.ToTextColor()}poisoned</color>!",
-            Color.white, new Vector3(0f, 1f, -20f), spr: TownOfExtraAssets.PoisonedModifierIcon.LoadAsset());
-        notif.AdjustNotification();
-    }
 
     public override void OnTimerComplete()
     {
