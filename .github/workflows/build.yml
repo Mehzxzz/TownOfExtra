@@ -24,9 +24,8 @@ jobs:
         with:
           dotnet-version: 8.0.x
 
-      - uses: cake-build/cake-action@v3
-        with:
-          verbosity: Diagnostic
+      - name: Build
+        run: dotnet build --configuration Release
 
       - uses: actions/upload-artifact@v4
         with:
@@ -34,4 +33,4 @@ jobs:
           path: |
             **/bin/Release/**/TownOfExtra.dll
             bin/Release/**/TownOfExtra.dll
-          retention-days: 7
+          retention-days: 7          retention-days: 7
