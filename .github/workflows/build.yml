@@ -33,4 +33,4 @@ jobs:
           path: |
             **/bin/Release/**/TownOfExtra.dll
             bin/Release/**/TownOfExtra.dll
-          retention-days: 7          retention-days: 7
+          retention-days: 7
