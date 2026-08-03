@@ -22,6 +22,7 @@ public class TownOfExtraColours
     public static Color ShifterRoleColour => new Color32(153, 153, 153, 255);
     public static Color TricksterRoleColour => new Color32(128, 0, 155, 255);
     public static Color PoltergeistRoleColour => new Color32(122, 186, 168, 255);
+    public static color PoisonerRoleColour => new Color32(163, 49, 239, 255);
     public static Color VultureRoleColour => new Color32(79, 24, 0, 255);
     public static Color CannibalRoleColour => new Color32(146, 43, 5, 255);
     public static Color SquidRoleColour => new Color32(146, 84, 197, 255);
