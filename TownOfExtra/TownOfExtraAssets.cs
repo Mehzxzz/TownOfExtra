@@ -7,7 +7,7 @@ namespace TownOfExtra;
 
 public static class TownOfExtraAssets
 {
-    public static bool UseBasicCrew { get; set; } = LocalSettingsTabSingleton<TownOfUsLocalRoleSettings>.Instance.UseCrewmateTeamColorToggle.Value;
+    public static bool UseBasicCrew { get; set; } = LocalSettingsTabSingleton<TouLocalTabPlayers>.Instance.UseCrewmateTeamColorToggle.Value;
 
     // ---- Crewmate Paths ----
     public static string CrewRoleIconPath => UseBasicCrew ? "TownOfExtra.Resources.BasicCrew.RoleIcons" : "TownOfExtra.Resources.Crew.RoleIcons";
@@ -106,15 +106,11 @@ public static class TownOfExtraAssets
     // Roles
 
     public static LoadableAsset<Sprite> ChiefRecruitButton =>
-        new LoadableResourceAsset($"{CrewButtonPath}.ChiefRecruitButton.png", 100);
+        new LoadableResourceAsset($"{CrewButtonPath}.ChiefRecruitButton.png");
     public static LoadableAsset<Sprite> ChiefShootButton =>
         new LoadableResourceAsset($"{CrewButtonPath}.ChiefShootButton.png");
     public static LoadableAsset<Sprite> JournalistInterviewButton =>
         new LoadableResourceAsset($"{CrewButtonPath}.JournalistInterviewButton.png");
-    public static LoadableAsset<Sprite> CommanderCommandButton =>
-        new LoadableResourceAsset($"{CrewButtonPath}.CommanderCommandButton.png", 200);
-    public static LoadableAsset<Sprite> CommanderAvengeButton =>
-        new LoadableResourceAsset($"{CrewButtonPath}.CommanderAvengeButton.png");
     
     // Modifiers
     
@@ -143,8 +139,6 @@ public static class TownOfExtraAssets
         new LoadableResourceAsset($"{ImpRoleIconPath}.SignalJammerRoleIcon.png", 200);
 
     // Killing
-    public static LoadableAsset<Sprite> PoisonerRoleIcon =>
-        new LoadableResourceAsset($"{ImpRoleIconPath}.PoisonerRoleIcon.png");
     public static LoadableAsset<Sprite> KnifeThrowerRoleIcon =
         new LoadableResourceAsset($"{ImpRoleIconPath}.KnifeThrowerRoleIcon.png");
     public static LoadableAsset<Sprite> StrikerRoleIcon =>
@@ -192,8 +186,6 @@ public static class TownOfExtraAssets
         new LoadableResourceAsset($"{ImpButtonPath}.HolographerHolographButton.png");
     public static LoadableAsset<Sprite> SignalJammerJamButton =>
         new LoadableResourceAsset($"{ImpButtonPath}.SignalJammerJamButton.png");
-    public static LoadableAsset<Sprite> PoisonerPoisonButton =>
-        new LoadableResourceAsset($"{ImpButtonPath}.PoisonerPoisonButton.png");
     public static LoadableAsset<Sprite> StrikerLocateButton =>
         new LoadableResourceAsset($"{ImpButtonPath}.StrikerLocateButton.png", 683);
     public static LoadableAsset<Sprite> StrikerStrikeButton =>
@@ -225,8 +217,6 @@ public static class TownOfExtraAssets
         new LoadableResourceAsset($"{ImpMiscPath}.SquashedDeadBodySpriteVisor.png");
     public static LoadableAsset<Sprite> EmergencyConsoleBroken =>
         new LoadableResourceAsset($"{ImpMiscPath}.EmergencyConsoleBroken.png");
-    public static LoadableAsset<Sprite> PoisonedModifierIcon =>
-        new LoadableResourceAsset($"{ImpMiscPath}.PoisonedModifierIcon.png");
     public static LoadableAsset<Sprite> ObstructedButtonOverlay =>
         new LoadableResourceAsset($"{ImpMiscPath}.ObstructedButtonOverlay.png");
 
@@ -261,6 +251,8 @@ public static class TownOfExtraAssets
         new LoadableResourceAsset($"{NeutRoleIconPath}.BarbarianRoleIcon.png", 200);
     public static LoadableAsset<Sprite> ClownRoleIcon =>
         new LoadableResourceAsset($"{NeutRoleIconPath}.ClownRoleIcon.png", 200);
+    public static LoadableAsset<Sprite> PoisonerRoleIcon =>
+        new LoadableResourceAsset($"{NeutRoleIconPath}.PoisonerRoleIcon.png");
 
     // --- Buttons ---
 
@@ -294,6 +286,8 @@ public static class TownOfExtraAssets
         new LoadableResourceAsset($"{NeutButtonPath}.ClownPlaceButton.png");
     public static LoadableAsset<Sprite> ClownKillButton =>
         new LoadableResourceAsset($"{NeutButtonPath}.ClownKillButton.png");
+    public static LoadableAsset<Sprite> PoisonerPoisonButton =>
+        new LoadableResourceAsset($"{NeutButtonPath}.PoisonerPoisonButton.png");
     
     // --- Misc ---
     
@@ -301,6 +295,8 @@ public static class TownOfExtraAssets
         new LoadableResourceAsset($"{NeutMiscPath}.SquidInkPuddle.png", 230);
     public static LoadableAsset<Sprite> ClownJackInTheBox =>
         new LoadableResourceAsset($"{NeutMiscPath}.ClownJackInTheBox.png", 200);
+    public static LoadableAsset<Sprite> PoisonedModifierIcon =>
+        new LoadableResourceAsset($"{NeutMiscPath}.PoisonedModifierIcon.png");
 
 
 

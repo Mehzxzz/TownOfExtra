@@ -10,7 +10,7 @@ public class TownOfExtraColours
 {
     public static Color GlobalModColour => new Color32(240, 70, 118, 255);
     
-    public static bool UseBasicCrew { get; set; } = LocalSettingsTabSingleton<TownOfUsLocalRoleSettings>.Instance.UseCrewmateTeamColorToggle.Value;
+    public static bool UseBasicCrew { get; set; } = LocalSettingsTabSingleton<TouLocalTabPlayers>.Instance.UseCrewmateTeamColorToggle.Value;
     
     public static Color ChiefRoleColour => UseBasicCrew ? Palette.CrewmateBlue : new Color32(0, 118, 1, 255);
     public static Color JournalistRoleColour => UseBasicCrew ? Palette.CrewmateBlue : new Color32(218, 213, 197, 255);

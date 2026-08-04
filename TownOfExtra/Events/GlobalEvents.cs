@@ -11,8 +11,8 @@ public class GlobalEvents
     public static void RoundStartEventHandler(RoundStartEvent e)
     {
         TownOfExtraColours.UseBasicCrew =
-            LocalSettingsTabSingleton<TownOfUsLocalRoleSettings>.Instance.UseCrewmateTeamColorToggle.Value;
+            LocalSettingsTabSingleton<TouLocalTabPlayers>.Instance.UseCrewmateTeamColorToggle.Value;
         TownOfExtraAssets.UseBasicCrew =
-            LocalSettingsTabSingleton<TownOfUsLocalRoleSettings>.Instance.UseCrewmateTeamColorToggle.Value;
+            LocalSettingsTabSingleton<TouLocalTabPlayers>.Instance.UseCrewmateTeamColorToggle.Value;
     }
 }
