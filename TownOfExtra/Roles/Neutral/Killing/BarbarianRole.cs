@@ -8,10 +8,10 @@ using MiraAPI.Roles;
 using MiraAPI.Utilities;
 using TownOfExtra.Modules;
 using TownOfExtra.Options.Roles;
-using TownOfExtra.Roles.Crewmate.Killing;
 using TownOfUs.Extensions;
 using TownOfUs.Modules.Wiki;
 using TownOfUs.Roles;
+using TownOfUs.Roles.Crewmate;
 using TownOfUs.Roles.Neutral;
 using TownOfUs.Utilities;
 using UnityEngine;
@@ -28,7 +28,7 @@ public sealed class BarbarianRole(IntPtr cppPtr) : NeutralRole(cppPtr), ITownOfU
     public RoleAlignment RoleAlignment => RoleAlignment.NeutralKilling;
     public DoomableType DoomHintType => (DoomableType)ToExDoomHints.ToExRelentless;
     public RoleBehaviour CrewVariant =>
-        RoleManager.Instance.GetRole((RoleTypes)RoleId.Get<CommanderRole>());
+        RoleManager.Instance.GetRole((RoleTypes)RoleId.Get<DeputyRole>());
 
     public override void SpawnTaskHeader(PlayerControl playerControl)
     {
