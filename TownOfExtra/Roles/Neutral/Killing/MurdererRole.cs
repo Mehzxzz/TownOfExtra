@@ -6,6 +6,7 @@ using Il2CppInterop.Runtime.Attributes;
 using MiraAPI.GameOptions;
 using MiraAPI.Roles;
 using MiraAPI.Utilities;
+using TownOfExtra.Modules;
 using TownOfExtra.Options.Roles;
 using TownOfUs;
 using TownOfUs.Assets;
@@ -22,22 +23,33 @@ namespace TownOfExtra.Roles.Neutral.Killing;
 public sealed class MurdererRole(IntPtr cppPtr) : NeutralRole(cppPtr), ITownOfUsRole, IWikiDiscoverable, IDoomable, ICrewVariant
 {
     public string RoleName => "Murderer";
-    public string RoleDescription => "Murder them all!";
+    public string RoleDescription => "Eliminate everyone!";
     public string RoleLongDescription => RoleDescription;
     public Color RoleColor => TownOfUsColors.Neutral;
     public ModdedRoleTeams Team => ModdedRoleTeams.Custom;
     public RoleAlignment RoleAlignment => RoleAlignment.NeutralKilling;
-    public DoomableType DoomHintType => DoomableType.Relentless;
+    public DoomableType DoomHintType => (DoomableType)ToExDoomHints.ToExFearmonger;
     public RoleBehaviour CrewVariant =>
         RoleManager.Instance.GetRole((RoleTypes)RoleId.Get<OfficerRole>());
 
+    public override void SpawnTaskHeader(PlayerControl playerControl)
+    {
+        if (playerControl != PlayerControl.LocalPlayer)
+        {
+            return;
+        }
+        ImportantTextTask orCreateTask = PlayerTask.GetOrCreateTask<ImportantTextTask>(playerControl);
+        orCreateTask.Text = $"{TownOfUsColors.Neutral.ToTextColor()}Be the last killer alive, at all costs.</color>\n{TownOfUsColors.Neutral.ToTextColor()}Fake Tasks:</color>";
+        orCreateTask.name = "NeutralRoleText";
+    }
+    
     public string GetAdvancedDescription()
     {
         return
             $"The Murderer is a Neutral Killing role that is a standard Neutral Killer, having to kill everyone to win{(OptionGroupSingleton<MurdererRoleOptions>.Instance.CanVent ? " while being able to vent too." : ".")}" +
             MiscUtils.AppendOptionsText(GetType());
     }
-
+    
     public CustomRoleConfiguration Configuration => new CustomRoleConfiguration(this)
     {
         IconTmp = MiraAPI.Utilities.Assets.TmpSpriteUtils.CreateSpriteAsset(TouRoleIcons.Neutral.LoadAsset(), "ToEx.Role.Neutral.Murderer", 1.45f),
@@ -57,24 +69,24 @@ public sealed class MurdererRole(IntPtr cppPtr) : NeutralRole(cppPtr), ITownOfUs
             };
         }
     }
-
+    
     public bool WinConditionMet()
     {
-        var murdererCount = CustomRoleUtils.GetActiveRolesOfType<MurdererRole>().Count(x => !x.Player.HasDied());
+        var murdererAmount = CustomRoleUtils.GetActiveRolesOfType<MurdererRole>().Count(x => !x.Player.HasDied());
 
-        if (MiscUtils.KillersAliveCount > murdererCount)
+        if (MiscUtils.KillersAliveCount > murdererAmount)
         {
             return false;
         }
 
-        return murdererCount >= Helpers.GetAlivePlayers().Count - murdererCount;
+        return murdererAmount >= Helpers.GetAlivePlayers().Count - murdererAmount;
     }
 
     public override bool DidWin(GameOverReason gameOverReason)
     {
         return WinConditionMet();
     }
-
+    
     public override bool CanUse(IUsable usable)
     {
         if (!GameManager.Instance.LogicUsables.CanUse(usable, Player))
