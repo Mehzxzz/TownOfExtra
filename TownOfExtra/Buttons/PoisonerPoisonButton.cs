@@ -7,13 +7,10 @@ using MiraAPI.Utilities.Assets;
 using Reactor.Utilities;
 using TownOfExtra.Modifiers.Excluded;
 using TownOfExtra.Options.Roles;
-using TownOfExtra.Roles.Impostor.Killing;
+using TownOfExtra.Roles.Neutral.Killing;
 using TownOfUs.Buttons;
-using TownOfUs.Options;
-using TownOfUs.Options.Maps;
 using TownOfUs.Options.Modifiers.Alliance;
 using TownOfUs.Utilities;
-using TownOfUs.Utilities.Appearances;
 using UnityEngine;
 
 namespace TownOfExtra.Buttons;
@@ -22,7 +19,7 @@ public sealed class PoisonerPoisonButton : TownOfUsKillRoleButton<PoisonerRole, 
 {
     public override string Name => "Poison";
     public override BaseKeybind Keybind => Keybinds.PrimaryAction;
-    public override Color TextOutlineColor => Palette.ImpostorRed;
+    public override Color TextOutlineColor => TownOfExtraColours.PoisonerRoleColour;
     public override float Cooldown => OptionGroupSingleton<PoisonerRoleOptions>.Instance.PoisonCooldown;
     public static float Delay => OptionGroupSingleton<PoisonerRoleOptions>.Instance.PoisonDelay;
     public static float Length => OptionGroupSingleton<PoisonerRoleOptions>.Instance.PoisonLength;
@@ -36,22 +33,12 @@ public sealed class PoisonerPoisonButton : TownOfUsKillRoleButton<PoisonerRole, 
 
     public override PlayerControl GetTarget()
     {
-        var genOpt = OptionGroupSingleton<GeneralOptions>.Instance;
-        var saboOpt = OptionGroupSingleton<AdvancedSabotageOptions>.Instance;
-        var closePlayer = PlayerControl.LocalPlayer.GetClosestLivingPlayer(true, Distance);
-
-        var includePostors = genOpt.FFAImpostorMode ||
-                             (PlayerControl.LocalPlayer.IsLover() &&
-                              OptionGroupSingleton<LoversOptions>.Instance.LoverKillTeammates) ||
-                             (saboOpt.KillDuringCamoComms &&
-                              closePlayer?.GetAppearanceType() == TownOfUsAppearances.Camouflage);
         if (!OptionGroupSingleton<LoversOptions>.Instance.LoversKillEachOther && PlayerControl.LocalPlayer.IsLover())
         {
-            return PlayerControl.LocalPlayer.GetClosestLivingPlayer(includePostors, Distance, false,
-                x => !x.IsLover());
+            return PlayerControl.LocalPlayer.GetClosestLivingPlayer(true, Distance, false, x => !x.IsLover());
         }
 
-        return PlayerControl.LocalPlayer.GetClosestLivingPlayer(includePostors, Distance);
+        return PlayerControl.LocalPlayer.GetClosestLivingPlayer(true, Distance);
     }
 
     protected override void OnClick()
@@ -61,7 +48,7 @@ public sealed class PoisonerPoisonButton : TownOfUsKillRoleButton<PoisonerRole, 
         OverrideName("Applying Poison...");
         
         var notif = Helpers.CreateAndShowNotification(
-            $"Applying {TownOfExtraColours.PoisonColour.ToTextColor()}poison</color> to {Target.Data.PlayerName}...",
+            $"Applying {TownOfExtraColours.PoisonerRoleColour.ToTextColor()}poison</color> to {Target.Data.PlayerName}...",
             Color.white, new Vector3(0f, 1f, -20f), spr: TownOfExtraAssets.PoisonedModifierIcon.LoadAsset());
         notif.AdjustNotification();
 
@@ -75,7 +62,7 @@ public sealed class PoisonerPoisonButton : TownOfUsKillRoleButton<PoisonerRole, 
             target.RpcAddModifier<PoisonedModifier>(PlayerControl.LocalPlayer);
 
             var pnotif = Helpers.CreateAndShowNotification(
-                $"You poisoned {TownOfExtraColours.PoisonColour.ToTextColor()}{targetName}</color>!",
+                $"You poisoned {TownOfExtraColours.PoisonerRoleColour.ToTextColor()}{targetName}</color>!",
                 Color.white, new Vector3(0f, 1f, -20f), spr: TownOfExtraAssets.PoisonedModifierIcon.LoadAsset());
             pnotif.AdjustNotification();
 

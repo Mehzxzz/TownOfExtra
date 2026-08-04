@@ -2,7 +2,6 @@
 using HarmonyLib;
 using MiraAPI.Modifiers;
 using TownOfExtra.Modifiers.Excluded;
-using TownOfExtra.Roles.Crewmate.Killing;
 using TownOfExtra.Roles.Crewmate.Power;
 using TownOfExtra.Roles.Crewmate.Investigative;
 using TownOfExtra.Roles.Impostor.Killing;
@@ -39,7 +38,6 @@ internal static class TerminologyIconRegistry
         Register(new TaggedIcon());
         Register(new RecruitedIcon());
         Register(new InterviewingIcon());
-        Register(new BrawlerIcon());
         Register(new BarbarianTargetIcon());
     }
 
@@ -126,14 +124,6 @@ internal sealed class InterviewingIcon : ITerminologyIcon
     public bool ShouldShow(PlayerControl local, PlayerControl row) =>
         row.HasModifier<InterviewModifier>() &&
         (local.GetTownOfUsRole() is JournalistRole || local.Data.IsDead);
-}
-
-internal sealed class BrawlerIcon : ITerminologyIcon
-{
-    public string RichChunk => $"{TownOfExtraColours.CommanderRoleColour.ToTextColor()}⌘</color>";
-    public bool ShouldShow(PlayerControl local, PlayerControl row) =>
-        row.HasModifier<BrawlerModifier>() &&
-        (local.GetTownOfUsRole() is CommanderRole || local.Data.IsDead);
 }
 
 internal sealed class BarbarianTargetIcon : ITerminologyIcon
