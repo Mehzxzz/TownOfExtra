@@ -15,6 +15,8 @@ public sealed class PoisonerRoleOptions : AbstractRoleOptionGroup<PoisonerRole>
     public float PoisonLength { get; set; } = 15f;
     [ModdedNumberOption("Poison Delay", 0f, 20f, 2.5f, MiraNumberSuffixes.Seconds)]
     public float PoisonDelay { get; set; } = 5f;
+    [ModdedToggleOption("Alert victim of poison")]
+    public bool AlertOfPoison  { get; set; } = true;
 
     [ModdedToggleOption("Can Vent")]
     public bool CanVent  { get; set; } = true;

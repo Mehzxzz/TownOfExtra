@@ -44,7 +44,7 @@ public sealed class PoisonerRole(IntPtr cppPtr) : NeutralRole(cppPtr), ITownOfUs
     public string GetAdvancedDescription()
     {
         return
-            $"The Poisoner is a Neutral Killing role that can poison players, making their screen become green, and making them die in a few seconds." +
+            "The Poisoner is a Neutral Killing role that can poison players, making their screen become green, and making them die in a few seconds." +
             MiscUtils.AppendOptionsText(GetType());
     }
     
