@@ -435,7 +435,7 @@
       "Number": "125",
       "ShortTitle": "TownOfExtra v1.2.5",
       "Title": "TownOfExtra v1.2.5",
-      "SubTitle": "★ Compatibility with Tou: Mira v1.7.0 ★",
+      "SubTitle": "★ Compatibility with Tou: Mira v1.7.1 ★",
       "Text": [
         "\r<b>TownOfExtra has updated to v1.2.5</b>",
         "\n\nThank you for playing the mod!",
@@ -452,6 +452,7 @@
         "\n- Added an update checker",
         "\n- Added a new button icon for chief's recruit (by @jaydoeswitchcraft [discord])",
         "\n- Added win options for all neutral evils",
+        "\n- Added an option for poisoner to disable/enable poison alerts",
         "\n\n\r<size=105%>Changes:</size>",
         "\n- Removed custom death message for bloodlust",
         "\n- Removed striker's locate msg saving",
@@ -460,7 +461,8 @@
         "\n- Fixed bloodlust being able to kill its own team",
         "\n- Fixed striker being able to strike its own team",
         "\n- Fixed conjurer being able to place rocks in meetings",
-        "\n- Fixed an error when no one got voted after meetings"
+        "\n- Fixed an error when no one got voted after meetings",
+        "\n- Fixed conjurer being able to kill through r1 shield"
       ]
     }
   ]

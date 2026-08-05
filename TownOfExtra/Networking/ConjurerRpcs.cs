@@ -1,11 +1,13 @@
 ﻿using System;
 using System.Collections;
 using MiraAPI.GameOptions;
+using MiraAPI.Modifiers;
 using Reactor.Networking.Attributes;
 using Reactor.Utilities;
 using Reactor.Utilities.Attributes;
 //todo: using TownOfExtra.Achievements;
 using TownOfExtra.Options.Roles;
+using TownOfUs.Modifiers;
 using TownOfUs.Networking;
 using TownOfUs.Utilities;
 using UnityEngine;
@@ -50,7 +52,9 @@ public static class ConjurerRpcs
                 if (cantCrush == ConjurerCantCrushOptions.SelfAndTeam && p.IsImpostor()) continue;
                 
                 if (Vector2.Distance(p.transform.position, pos) < 0.5f)
-                { 
+                {
+                    if (p.HasModifier<FirstDeadShield>()) continue;
+                    
                     sender.RpcSpecialMurder(p, true, true, teleportMurderer: false, showKillAnim: false, createDeadBody: true, causeOfDeath: "Crushed");
                     //todo: sender.RpcAwardAchievement(AApi.GetInstance()?.ConjurerDropRockOnPlayer);
                     
