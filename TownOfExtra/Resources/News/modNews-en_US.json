@@ -479,7 +479,8 @@
         "\n- Retargeted references to Town of Us Mira 1.7.1 / MiraAPI 0.4.3",
         "\n\n\r<size=105%>Bugfixes:</size>",
         "\n- Fixed vulture not transforming into amnesiac properly",
-        "\n- Fixed youthling fully resetting cooldown instead of using the temp save cd reset setting"
+        "\n- Fixed youthling fully resetting cooldown instead of using the temp save cd reset setting",
+        "\n- Changed some buttons to use different logic for renaming/changing sprites (to reduce lag)"
       ]
     }
   ]

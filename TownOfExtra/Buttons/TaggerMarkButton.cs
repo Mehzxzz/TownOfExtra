@@ -1,4 +1,5 @@
-﻿using MiraAPI.GameOptions;
+﻿using System.Diagnostics.CodeAnalysis;
+using MiraAPI.GameOptions;
 using MiraAPI.Keybinds;
 using MiraAPI.Networking;
 using MiraAPI.Utilities.Assets;
@@ -16,6 +17,7 @@ using UnityEngine;
 
 namespace TownOfExtra.Buttons;
 
+[SuppressMessage("ReSharper", "InconsistentNaming")]
 public sealed class TaggerMarkButton : TownOfUsKillRoleButton<TaggerRole, PlayerControl>, IKillButton
 {
     public override string Name => "Mark";
@@ -24,8 +26,13 @@ public sealed class TaggerMarkButton : TownOfUsKillRoleButton<TaggerRole, Player
     public override float Cooldown => OptionGroupSingleton<TaggerRoleOptions>.Instance.MarkCooldown;
     public override LoadableAsset<Sprite> Sprite => TownOfExtraAssets.TaggerMarkButton;
 
+    private static Sprite _markSprite => TownOfExtraAssets.TaggerMarkButton.LoadAsset();
+    private static Sprite _killSprite => TouAssets.KillSprite.LoadAsset();
+
     public override PlayerControl GetTarget()
     {
+        PlayerControl target;
+        
         var genOpt = OptionGroupSingleton<GeneralOptions>.Instance;
         var saboOpt = OptionGroupSingleton<AdvancedSabotageOptions>.Instance;
         var closePlayer = PlayerControl.LocalPlayer.GetClosestLivingPlayer(true, Distance);
@@ -37,26 +44,26 @@ public sealed class TaggerMarkButton : TownOfUsKillRoleButton<TaggerRole, Player
                               closePlayer?.GetAppearanceType() == TownOfUsAppearances.Camouflage);
         if (!OptionGroupSingleton<LoversOptions>.Instance.LoversKillEachOther && PlayerControl.LocalPlayer.IsLover())
         {
-            return PlayerControl.LocalPlayer.GetClosestLivingPlayer(includePostors, Distance, false,
+            target = PlayerControl.LocalPlayer.GetClosestLivingPlayer(includePostors, Distance, false,
                 x => !x.IsLover());
         }
+        else
+        {
+            target = PlayerControl.LocalPlayer.GetClosestLivingPlayer(includePostors, Distance);
+        }
 
-        return PlayerControl.LocalPlayer.GetClosestLivingPlayer(includePostors, Distance);
-    }
-
-    protected override void FixedUpdate(PlayerControl playerControl)
-    {
-        var target = GetTarget();
         if (target == null || !TaggerRole.MarkedPlayers.Contains(target))
         {
             OverrideName("Mark");
-            OverrideSprite(TownOfExtraAssets.TaggerMarkButton.LoadAsset());
+            OverrideSprite(_markSprite);
         }
         else
         {
             OverrideName("Eliminate");
-            OverrideSprite(TouAssets.KillSprite.LoadAsset());
+            OverrideSprite(_killSprite);
         }
+
+        return target;
     }
 
     protected override void OnClick()

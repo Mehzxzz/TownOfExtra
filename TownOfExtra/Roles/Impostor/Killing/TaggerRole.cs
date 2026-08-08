@@ -58,7 +58,6 @@ public sealed class TaggerRole : ImpostorRole, ITownOfUsRole, IWikiDiscoverable,
     {
         IconTmp = MiraAPI.Utilities.Assets.TmpSpriteUtils.CreateSpriteAsset(TownOfExtraAssets.TaggerRoleIcon.LoadAsset(), "ToEx.Role.Impostor.Tagger", 1.45f),
         MaxRoleCount = 1,
-        UseVanillaKillButton = false,
         Icon = TownOfExtraAssets.TaggerRoleIcon
     };
     
