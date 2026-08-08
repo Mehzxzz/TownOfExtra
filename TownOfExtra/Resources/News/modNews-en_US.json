@@ -480,7 +480,8 @@
         "\n\n\r<size=105%>Bugfixes:</size>",
         "\n- Fixed vulture not transforming into amnesiac properly",
         "\n- Fixed youthling fully resetting cooldown instead of using the temp save cd reset setting",
-        "\n- Changed some buttons to use different logic for renaming/changing sprites (to reduce lag)"
+        "\n- Fixed lag & memory leak issues which lead to crashes",
+        "\n- Fixed tagger resetting the main kcd when eliminating a marked player"
       ]
     }
   ]
