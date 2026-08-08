@@ -73,7 +73,7 @@ public sealed class TaggerMarkButton : TownOfUsKillRoleButton<TaggerRole, Player
         if (TaggerRole.MarkedPlayers.Contains(Target))
         {
             PlayerControl.LocalPlayer.RpcSpecialMurder(
-                Target, MeetingCheck.OutsideMeeting
+                Target, MeetingCheck.OutsideMeeting, resetKillTimer: false
             );
             TaggerRole.MarkedPlayers.Remove(Target);
         }
