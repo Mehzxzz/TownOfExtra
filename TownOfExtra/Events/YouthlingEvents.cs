@@ -117,7 +117,8 @@ public static class YouthlingEvents
             return;
         }
 
-        button?.ResetCooldownAndOrEffect();
+        button?.EffectActive = false;
+        button?.SetTimer(OptionGroupSingleton<GeneralOptions>.Instance.TempSaveCdReset);
 
         if (source.Data.Role is WerewolfRole)
         {
