@@ -64,10 +64,10 @@ public class VultureRpcs
     }
 
     [MethodRpc((uint)TownOfExtraRpcs.VultureChangeToAmne)]
-    public static void RpcChangeVultureToAmne(int aliveOthers, int impostors)
+    public static void RpcChangeVultureToAmne(PlayerControl sender, int aliveOthers, int impostors)
     {
         PlayerControl player = PlayerControl.LocalPlayer;
-        if (player.GetTownOfUsRole() is not VultureRole || player.Data.IsDead) return;
+        if (sender != player || player.Data.IsDead) return;
         if (aliveOthers > impostors * 2) return;
 
         player.RpcChangeRole(RoleId.Get<AmnesiacRole>());

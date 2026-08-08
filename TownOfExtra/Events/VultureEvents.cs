@@ -119,6 +119,9 @@ public class VultureEvents
             else others++;
         }
 
-        VultureRpcs.RpcChangeVultureToAmne(others, impostors);
+        foreach (var p in PlayerControl.AllPlayerControls)
+        {
+            VultureRpcs.RpcChangeVultureToAmne(p, others, impostors);
+        }
     }
 }
