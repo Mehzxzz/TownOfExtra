@@ -1,0 +1,120 @@
+﻿using MiraAPI.Events;
+using MiraAPI.Events.Vanilla.Usables;
+using MiraAPI.GameOptions;
+using TownOfExtra.Options.Roles.Neutral;
+using TownOfExtra.Roles.Neutral;
+using UnityEngine;
+
+namespace TownOfExtra.Buttons;
+
+public sealed class VultureVentButton : TownOfUsVentRoleButton<VultureRole>
+{
+    public override string name => "Vent";
+    public override BaseKeybind Keybind => Keybinds.VentAction;
+    public override Color TextOutlineColor => TownOfExtraColors.VultureColor;
+
+    public override float Cooldown =>
+        Math.Clamp(OptionGroupSingleton<VultureOptions>.Instance.VentCooldown + MapCooldown, 0.001f, 120f);
+
+    public override float EffectDuration => OptionGroupSingleton<VultureOptions>.Instance.VentDuration;
+    public override LoadableAsset<Sprite> Sprite => TownOfExtraAssets.VultureVent;
+    public override bool ShouldPauseInVent => false;
+        public override bool CanUse()
+    {
+        return base.CanUse() && VultureRole.DeadBodiesEaten > 0;
+    }
+
+    public override void ClickHandler()
+    {
+        if (!CanUse())
+        {
+            return;
+        }
+
+        OnClick();
+        Button?.SetDisabled();
+        if (EffectActive)
+        {
+            Timer = Cooldown;
+            EffectActive = false;
+            // Error($"Effect is No Longer Active");
+            // Error($"Cooldown is active");
+        }
+        else if (HasEffect)
+        {
+            EffectActive = true;
+            Timer = EffectDuration;
+            // Error($"Effect is Now Active");
+        }
+        else
+        {
+            Timer = !PlayerControl.LocalPlayer.inVent ? 0.001f : Cooldown;
+            // Error($"Cooldown is active");
+        }
+    }
+
+    protected override void OnClick()
+    {
+        if (!PlayerControl.LocalPlayer.inVent)
+        {
+            // Error($"Entering Vent");
+            if (Target != null)
+            {
+                PlayerControl.LocalPlayer.MyPhysics.RpcEnterVent(Target.Id);
+                Target.SetButtons(true);
+            }
+            // else Error($"Vent is null...");
+        }
+        else if (Timer != 0)
+        {
+            // Error($"Leaving Vent");
+            OnEffectEnd();
+            if (!HasEffect)
+            {
+                EffectActive = false;
+                Timer = Cooldown;
+            }
+        }
+    }
+
+    public override void OnEffectEnd()
+    {
+        if (!PlayerControl.LocalPlayer.inVent)
+        {
+            return;
+        }
+
+        // Error($"Left Vent");
+        _ = Vent.currentVent.CanUse(PlayerControl.LocalPlayer.Data, out _, out var couldUse);
+        Vent.currentVent.SetButtons(false);
+
+        Vent toExit = Vent.currentVent;
+
+        if (!couldUse)
+        {
+            Error($"Current vent cannot be exited, finding alternate route.");
+            Vent? newVent = null;
+            foreach (var closeVent in Vent.currentVent.NearbyVents)
+            {
+                if (newVent != null)
+                {
+                    break;
+                }
+                var @event = new PlayerCanUseEvent(closeVent.Cast<IUsable>());
+                MiraEventManager.InvokeEvent(@event);
+
+                if (!@event.IsCancelled)
+                {
+                    newVent = closeVent;
+                }
+            }
+
+            if (newVent != null)
+            {
+                toExit = newVent;
+            }
+        }
+
+        PlayerControl.LocalPlayer.MyPhysics.RpcExitVent(toExit.Id);
+    }
+}
