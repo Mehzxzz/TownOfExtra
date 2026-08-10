@@ -40,7 +40,6 @@ A client-side [Among Us](https://store.steampowered.com/app/945360/Among_Us) mod
   <a href="https://toex.freehosting.dev/docs#/item/556349f8da18"><img width="10%" src="https://github.com/Mehzxzz/TownOfExtra/blob/master/TownOfExtra/Resources/Crew/RoleIcons/JournalistRoleIcon.png" /></a>
   <a href="https://toex.freehosting.dev/docs#/item/8d5bc3fbc976"><img src="https://github.com/Mehzxzz/TownOfExtra/blob/master/Resources/Headers/NeutEvil.png" /></a>
   <a href="https://toex.freehosting.dev/docs#/item/a970d0912c8f"><img width="10%" src="https://github.com/Mehzxzz/TownOfExtra/blob/master/TownOfExtra/Resources/Neut/RoleIcons/TricksterRoleIcon.png" /></a>
-  <a href="https://toex.freehosting.dev/docs#/item/848ece302c8e"><img width="10%" src="https://github.com/Mehzxzz/TownOfExtra/blob/master/TownOfExtra/Resources/Neut/RoleIcons/VultureRoleIcon.png" /></a>
   <a href="https://toex.freehosting.dev/docs#/item/97ecf5bb9658"><img width="10%" src="https://github.com/Mehzxzz/TownOfExtra/blob/master/TownOfExtra/Resources/Neut/RoleIcons/PoltergeistRoleIcon.png" /></a>
   <a href="https://toex.freehosting.dev/docs#/item/2885f599f16c"><img src="https://github.com/Mehzxzz/TownOfExtra/blob/master/Resources/Headers/NeutKilling.png" /></a>
   <a href="https://toex.freehosting.dev/docs#/item/69aaf8a77abe"><img width="10%" src="https://github.com/Mehzxzz/TownOfExtra/blob/master/TownOfExtra/Resources/Neut/RoleIcons/BarbarianRoleIcon.png" /></a>
