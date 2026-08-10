@@ -26,6 +26,11 @@ public sealed class VultureDigestButton : TownOfUsKillRoleButton<VultureRole, Pl
         SetTimer(Cooldown * multiplier);
     }
 
+    public override bool CanUse()
+    {
+        return base.CanUse() && VultureRole.DeadBodiesEaten > 1;
+    }
+
     protected override void OnClick()
     {
         if (Target == null) return;
