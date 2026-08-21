@@ -18,13 +18,14 @@ public sealed class VultureDigestButton : TownOfUsKillRoleButton<VultureRole, Pl
     public override string Name => "Digest";
     public override BaseKeybind Keybind => Keybinds.PrimaryAction;
     public override Color TextOutlineColor => TownOfUsColors.Neutral;
-    public override float Cooldown => OptionGroupSingleton<VultureRoleOptions>.Instance.DigestCooldown;
+    public override float Cooldown => GetCooldown()
     public override LoadableAsset<Sprite> Sprite => TownOfExtraAssets.AttackPh;
 
     public void SetDiseasedTimer(float multiplier)
     {
         SetTimer(Cooldown * multiplier);
     }
+        public static float BaseCooldown => Math.Clamp(OptionGroupSingleton<JuggernautOptions>.Instance.KillCooldown + MapCooldown, 5f, 120f);
 
     public override bool CanUse()
     {
@@ -46,5 +47,19 @@ public sealed class VultureDigestButton : TownOfUsKillRoleButton<VultureRole, Pl
         }
 
         return PlayerControl.LocalPlayer.GetClosestLivingPlayer(true, Distance);
+    public static float GetCooldown()
+    {
+        var vulture = PlayerControl.LocalPlayer.Data.Role as VultureRole;
+
+        if (vulture == null)
+        {
+            return BaseCooldown;
+        }
+
+        var options = OptionGroupSingleton<VultureOptions>.Instance;
+  if (vulture.BodiesEaten => 1)
+   {
+   return Math.Max(BaseCooldown - options.KillCooldownReduction.Value * VultureRole.DeadBodiesEaten, 0);
+    }
     }
 }
