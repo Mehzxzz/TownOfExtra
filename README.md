@@ -12,7 +12,6 @@
   <a href="https://github.com/Mehzxzz/TownOfExtra/releases/latest"><img src="https://img.shields.io/github/downloads/Mehzxzz/TownOfExtra/total?label=Downloads&logo=abdownloadmanager&logoColor=white" /></a>
   <a href="https://discord.gg/y2GN5Q4fzb"><img src="https://img.shields.io/discord/1504393219344040059?label=Discord&logo=discord&logoColor=white&color=5865F2" /></a>
   <a href="https://github.com/Mehzxzz/TownOfExtra/blob/master/LICENSE.txt"><img src="https://img.shields.io/github/license/Mehzxzz/TownOfExtra?label=License&logo=pinboard" /></a>
-  <a href="https://toex.freehosting.dev"><img src="https://img.shields.io/badge/Website-toex.freehosting.dev-blue?logo=googlechrome&logoColor=white" /></a>
 </p>
 
 A client-side [Among Us](https://store.steampowered.com/app/945360/Among_Us) mod that adds new roles & modifiers to [Town of Us: Mira](https://github.com/AU-Avengers/TOU-Mira).
@@ -83,7 +82,7 @@ A client-side [Among Us](https://store.steampowered.com/app/945360/Among_Us) mod
 - [Town Of Us: Mira](https://github.com/AU-Avengers/TOU-Mira) - Mod framework, api, inspiration & some assets
 - [Reactor](https://github.com/NuclearPowered/Reactor) - Dependency for the mod
 - [BepInEx](https://github.com/BepInEx) - For hooking game functions
-- [Divani Mods](https://github.com/DivaniNL/TownOfUsMiraDivaniModsAddOn)/[Divani](https://github.com/DivaniNL) - Code for making cleric's cleansing work on TouEx roles
+- [Divani Mods](https://github.com/DivaniNL/TownOfUsMiraDivaniModsAddOn)/[Divani](https://github.com/DivaniNL) - Code for making cleric's cleansing work on ToEx roles
 
 # Asset Credits
 - [@AtonyGit](https://github.com/AtonyGit)/[Town Of Us: Mira](https://github.com/AU-Avengers/TOU-Mira) - All assets that are not specified below
@@ -101,7 +100,7 @@ A client-side [Among Us](https://store.steampowered.com/app/945360/Among_Us) mod
 
 | Game Version             | Mod Version | Tou: Mira Version | Download Link                                                         |
 |--------------------------|-------------|-------------------|-----------------------------------------------------------------------|
-| 17.3 (2026.3.31)         | 1.2.3       | 1.6.2+            | [Download](https://github.com/Mehzxzz/TownOfExtra/releases/tag/1.2.2) |
+| 17.3 (2026.3.31)         | 1.2.5.1       | 1.7.1            | [Download](https://github.com/Mehzxzz/TownOfExtra/releases/tag/1.2.5.1) |
 
 **Version Numbers:**\
 **1.x.x**: Major update or recode.\
@@ -111,12 +110,15 @@ A client-side [Among Us](https://store.steampowered.com/app/945360/Among_Us) mod
 -----------------------
 
 # Installation
-> [!WARNING]
-> This mod is currently NOT available on mobile or starlight, you can only install it with a copy of among us on a pc.
-
+## PC
 1. Ensure you have [Town of Us: Mira](https://github.com/AU-Avengers/TOU-Mira) installed
 2. Build this project or download the [latest release](https://github.com/Mehzxzz/TownOfExtra/releases/latest)
 3. Place the compiled DLL in your `BepInEx/plugins/` folder
+
+## Android (Starlight)
+1. Install the starlight app from the Google play store, or via the API
+2. Log in to starlight via itch.io or Google play
+3. Create a new profile and search for "Town of Extra" in the mod browser and install it, the dependencies will automatically be installed with it
 
 -----------------------
 
