@@ -25,7 +25,7 @@ public sealed class VultureDigestButton : TownOfUsKillRoleButton<VultureRole, Pl
     {
         SetTimer(Cooldown * multiplier);
     }
-        public static float BaseCooldown => Math.Clamp(OptionGroupSingleton<JuggernautOptions>.Instance.KillCooldown + MapCooldown, 5f, 120f);
+        public static float BaseCooldown => Math.Clamp(OptionGroupSingleton<VultureOptions>.Instance.DigestCooldown + MapCooldown, 5f, 120f);
 
     public override bool CanUse()
     {
