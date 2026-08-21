@@ -64,7 +64,7 @@ public sealed class VultureDigestButton : TownOfUsKillRoleButton<VultureRole, Pl
         }
 
         var options = OptionGroupSingleton<VultureOptions>.Instance;
-  if (vulture.BodiesEaten => 1)
+  if (VultureRole.DeadBodiesEaten => 1)
    {
    return Math.Max(BaseCooldown - options.KillCooldownReduction.Value * VultureRole.DeadBodiesEaten, 0);
     }
