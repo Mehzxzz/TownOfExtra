@@ -16,20 +16,37 @@ public sealed class VultureRoleOptions : AbstractRoleOptionGroup<VultureRole>
    [ModdedNumberOption("Kill Cooldown reduction", 2.5f, 12.5f, 2.5f, MiraNumberSuffixes.Seconds)]
     public float KillCooldownReduction { get; set; } = 5f;
 
-    [ModdedEnumOption("Kill is", typeof(Obtainment),
-        ["Amount", "Off"])]
-    public Obtainment Obtainment { get; set; } = Obtainment.Amount;
+    [ModdedEnumOption("Can Kill", typeof(DigestObtainment),
+        ["Bodies", "Off"])]
+    public DigestObtainment DigestObtainment { get; set; } = DigestObtainment.Bodies;
 
 
-public enum Obtainment
+public enum DigestObtainment
 {
-    Amount,
+    Bodies,
     Off,
 }
 
-[ModdedNumberOption("Bodies to unlock Digest", 1f, 4f, 1f, MiraNumberSuffixes.None)]
+[ModdedNumberOption("Bodies to unlock Digest", 0f, 4f, 1f, MiraNumberSuffixes.None)]
     public float BodiesTillDigest{ get; set; } = 1f;
 {
-            Visible = () => OptionGroupSingleton<VultureRoleOptions>.Instance.Obtainment is not Obtainment.Off
+            Visible = () => OptionGroupSingleton<VultureRoleOptions>.Instance.DigestObtainment is not DigestObtainment.Off
+}
+
+[ModdedEnumOption("Can Vent", typeof(VentObtainment),
+        ["Bodies", "Off"])]
+    public VentObtainment VentObtainment { get; set; } = VentObtainment.Bodies;
+
+
+public enum VentObtainment
+{
+    Bodies,
+    Off,
+}
+
+[ModdedNumberOption("Bodies to unlock Vent", 0f, 4f, 1f, MiraNumberSuffixes.None)]
+    public float BodiesTillVent{ get; set; } = 2f;
+{
+            Visible = () => OptionGroupSingleton<VultureRoleOptions>.Instance.VentObtainment is not VentObtainment.Off
 }
 }
