@@ -16,12 +16,17 @@ public sealed class VultureVentButton : TownOfUsVentRoleButton<VultureRole>
     public override float Cooldown =>
         Math.Clamp(OptionGroupSingleton<VultureOptions>.Instance.VentCooldown + MapCooldown, 0.001f, 120f);
 
-    public override float EffectDuration => OptionGroupSingleton<VultureOptions>.Instance.VentDuration;
+    public override float EffectDuration => OptionGroupSingleton<VultureRoleOptions>.Instance.VentDuration;
     public override LoadableAsset<Sprite> Sprite => TownOfExtraAssets.VultureVent;
     public override bool ShouldPauseInVent => false;
         public override bool CanUse()
+    if (OptionsGroupSingleton<VultureRoleOptions>.Instance.VentObtainment is Off)
     {
-        return base.CanUse() && VultureRole.DeadBodiesEaten > 0;
+       continue;
+     }
+    else
+    {
+        return base.CanUse() && VultureRole.DeadBodiesEaten => OptionsGroupSingleton.BodiesTillVent;
     }
 
     public override void ClickHandler()
