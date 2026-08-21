@@ -29,7 +29,7 @@ public sealed class VultureDigestButton : TownOfUsKillRoleButton<VultureRole, Pl
 
     public override bool CanUse()
     {
-      if (OptionsGroupSingleton<VultureOptions>.Instance.Obtainment == Off)
+      if (OptionsGroupSingleton<VultureOptions>.Instance.DigestObtainment == Off)
    {
       continue;
    }
