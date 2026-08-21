@@ -19,10 +19,17 @@ public sealed class VultureRoleOptions : AbstractRoleOptionGroup<VultureRole>
     [ModdedEnumOption("Kill is", typeof(Obtainment),
         ["Amount", "Off"])]
     public Obtainment Obtainment { get; set; } = Obtainment.Amount;
-}
+
 
 public enum Obtainment
 {
     Amount,
     Off,
+}
+
+[ModdedNumberOption("Bodies to unlock Digest", 1f, 4f, 1f, MiraNumberSuffixes.None)]
+    public float BodiesTillDigest{ get; set; } = 1f;
+{
+            Visible = () => OptionGroupSingleton<VultureRoleOptions>.Instance.Obtainment is not Obtainment.Off
+}
 }
