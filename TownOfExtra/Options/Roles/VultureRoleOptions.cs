@@ -11,6 +11,8 @@ public sealed class VultureRoleOptions : AbstractRoleOptionGroup<VultureRole>
 
     [ModdedNumberOption("Eat Cooldown", 0f, 240f, 2.5f, MiraNumberSuffixes.Seconds)]
     public float EatCooldown { get; set; } = 30f;
- [ModdedNumberOption("Eat Cooldown", 2.5f, 12.5f, 2.5f, MiraNumberSuffixes.Seconds)]
+    [ModdedNumberOption("Digest Cooldown", 0f, 240f, 2.5f, MiraNumberSuffixes.Seconds)]
+    public float DigestCooldown { get; set; } = 35f;
+   [ModdedNumberOption("Kill Cooldown reduction", 2.5f, 12.5f, 2.5f, MiraNumberSuffixes.Seconds)]
     public float KillCooldownReduction { get; set; } = 5f;
 }
