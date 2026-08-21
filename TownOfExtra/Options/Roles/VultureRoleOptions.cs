@@ -15,4 +15,14 @@ public sealed class VultureRoleOptions : AbstractRoleOptionGroup<VultureRole>
     public float DigestCooldown { get; set; } = 35f;
    [ModdedNumberOption("Kill Cooldown reduction", 2.5f, 12.5f, 2.5f, MiraNumberSuffixes.Seconds)]
     public float KillCooldownReduction { get; set; } = 5f;
+
+    [ModdedEnumOption("Kill is", typeof(Obtainment),
+        ["Amount", "Off"])]
+    public Obtainment Obtainment { get; set; } = Obtainment.Amount;
+}
+
+public enum Obtainment
+{
+    Amount,
+    Off,
 }
