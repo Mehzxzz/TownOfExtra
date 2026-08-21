@@ -49,4 +49,15 @@ public enum VentObtainment
 {
             Visible = () => OptionGroupSingleton<VultureRoleOptions>.Instance.VentObtainment is not VentObtainment.Off
 }
+
+    [ModdedNumberOption("TouOptionEngineerVentCooldown", 0f, 25f, 2.5f, MiraNumberSuffixes.Seconds)]
+    public float VentCooldown { get; set; } = 15f;
+  {
+            Visible = () => OptionGroupSingleton<VultureRoleOptions>.Instance.VentObtainment is not VentObtainment.Off
+}
+ [ModdedNumberOption("TouOptionEngineerVentDuration", 0f, 25f, 5f, MiraNumberSuffixes.Seconds, zeroInfinity: true)]
+    public float VentDuration { get; set; } = 10f;
+{
+            Visible = () => OptionGroupSingleton<VultureRoleOptions>.Instance.VentObtainment is not VentObtainment.Off
+}
 }
