@@ -29,7 +29,14 @@ public sealed class VultureDigestButton : TownOfUsKillRoleButton<VultureRole, Pl
 
     public override bool CanUse()
     {
-        return base.CanUse() && VultureRole.DeadBodiesEaten > 1;
+      if (OptionsGroupSingleton<VultureOptions>.Instance.BodiesTillDigest => Off)
+   {
+      continue;
+   }
+   else
+     {
+   return base.CanUse() && VultureRole.DeadBodiesEaten => OptionsGroupSingleton<VultureOptions>.Instance.BodiesTillDigest;
+    }
     }
 
     protected override void OnClick()
