@@ -1,5 +1,4 @@
 using System;
-using MiraAPI.GameOptions;
 using MiraAPI.GameOptions.OptionTypes;
 using MiraAPI.Utilities;
 using TownOfExtra.Modifiers.Game.Universal.Passive;
@@ -10,7 +9,7 @@ namespace TownOfExtra.Options.Modifiers;
 
 public sealed class YouthlingOptions : AbstractTouModifierOptionGroup<YouthlingModifier>
 {
-    public override Func<bool> GroupVisible => () => OptionGroupSingleton<RoleOptions>.Instance.IsClassicRoleAssignment;
+    public override Func<bool> GroupVisible => () => RoleOptions.IsClassicRoleAssignment;
     public override string GroupName => "Youthling";
     public override Color GroupColor => TownOfExtraColours.YouthlingModifierColour;
     public override uint GroupPriority => 15;

@@ -6,6 +6,7 @@ using AmongUs.GameOptions;
 using Il2CppInterop.Runtime.Attributes;
 using MiraAPI.Patches.Stubs;
 using MiraAPI.Roles;
+using MiraAPI.Translation;
 using MiraAPI.Utilities;
 using Reactor.Utilities;
 using Reactor.Utilities.Attributes;
@@ -13,7 +14,6 @@ using Reactor.Utilities.Extensions;
 using TMPro;
 using TownOfUs;
 using TownOfUs.Assets;
-using TownOfUs.Modules.Localization;
 using TownOfUs.Utilities;
 using UnityEngine;
 using UnityEngine.Events;
@@ -68,17 +68,17 @@ public sealed class AmbassadorSelectionMinigame(IntPtr cppPtr) : Minigame(cppPtr
 
         StatusText.font = HudManager.Instance.TaskPanel.taskText.font;
         StatusText.fontMaterial = HudManager.Instance.TaskPanel.taskText.fontMaterial;
-        StatusText.text = TouLocale.Get("TouRoleAmbassadorChooseRole");
+        StatusText.text = MiraLocaleManager.Get("TouRoleAmbassadorChooseRole");
         StatusText.gameObject.SetActive(false);
 
         RoleName.font = HudManager.Instance.TaskPanel.taskText.font;
         RoleName.fontMaterial = HudManager.Instance.TaskPanel.taskText.fontMaterial;
-        RoleName.text = TouLocale.Get("Random");
+        RoleName.text = MiraLocaleManager.Get("Random");
         RoleName.gameObject.SetActive(false);
 
         RoleTeam.font = HudManager.Instance.TaskPanel.taskText.font;
         RoleTeam.fontMaterial = HudManager.Instance.TaskPanel.taskText.fontMaterial;
-        RoleTeam.text = TouLocale.Get("TouRoleAmbassadorRandomImpostorOption");
+        RoleTeam.text = MiraLocaleManager.Get("TouRoleAmbassadorRandomImpostorOption");
         RoleTeam.gameObject.SetActive(false);
 
         RoleIcon.sprite = TouRoleIcons.RandomImp.LoadAsset();
@@ -163,8 +163,8 @@ public sealed class AmbassadorSelectionMinigame(IntPtr cppPtr) : Minigame(cppPtr
         }
 
         var randomCard = CreateCard(
-            RandomCardLabel ?? TouLocale.Get("Random"),
-            RandomCardTeamLabel ?? TouLocale.Get("TouRoleAmbassadorRandomImpostorOption"),
+            RandomCardLabel ?? MiraLocaleManager.Get("Random"),
+            RandomCardTeamLabel ?? MiraLocaleManager.Get("TouRoleAmbassadorRandomImpostorOption"),
             TouRoleIcons.RandomImp.LoadAsset(),
             TownOfUsColors.Impostor);
         randomCard.OnClick.RemoveAllListeners();

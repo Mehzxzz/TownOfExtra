@@ -483,6 +483,22 @@
         "\n- Fixed lag & memory leak issues which lead to crashes",
         "\n- Fixed tagger resetting the main kcd when eliminating a marked player"
       ]
+    },
+    {
+      "Date": "2026-08-08T14:30:00Z",
+      "Number": "126",
+      "ShortTitle": "TownOfExtra v1.2.6",
+      "Title": "TownOfExtra v1.2.6",
+      "SubTitle": "Support for Tou Mira 1.7.3 & Among Us v18.0",
+      "Text": [
+        "\r<b>TownOfExtra has updated to v1.2.6</b>",
+        "\n\nThank you for playing the mod!",
+        "\n\n★ <link=https://discord.gg/y2GN5Q4fzb>Join Discord</link> ★ <link=https://toex.freehosting.dev/docs>Role/Modifier Info</link> ★",
+        "\n\n\r<size=105%>Changes:</size>",
+        "\n- Removed a lot of boring/useless roles, these will be revamped and re-added in a future update",
+        "\n\n\r<size=105%>Bugfixes:</size>",
+        "\n- Fixed the size of chief's recruit button"
+      ]
     }
   ]
 }

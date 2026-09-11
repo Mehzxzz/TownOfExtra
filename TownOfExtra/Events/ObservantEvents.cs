@@ -1,13 +1,10 @@
-﻿using System.Collections;
-using MiraAPI.Events;
+﻿using MiraAPI.Events;
 using MiraAPI.Events.Vanilla.Gameplay;
 using MiraAPI.Modifiers;
-using Reactor.Utilities;
 using TownOfExtra.Modifiers.Game.Crewmate.Passive;
-using TownOfExtra.Networking;
 using TownOfExtra.Networking.Global;
 using TownOfUs;
-using TownOfUs.Modifiers;
+using TownOfUs.Modules;
 using TownOfUs.Roles.Crewmate;
 using TownOfUs.Utilities;
 
@@ -20,39 +17,29 @@ public class ObservantEvents
     {
         if (!MeetingHud.Instance) return;
         if (!PlayerControl.LocalPlayer.HasModifier<ObservantModifier>()) return;
+        if (!GameHistory.PlayerStats.TryGetValue(e.Target.PlayerId, out _)) return;
 
-        Coroutines.Start(CoWaitForDeathHandler(e.Target, e.Source));
-    }
-
-    private static IEnumerator CoWaitForDeathHandler(PlayerControl target, PlayerControl source)
-    {
-        while (DeathHandlerModifier.IsAltCoroutineRunning || DeathHandlerModifier.IsCoroutineRunning)
-        {
-            yield return null;
-        }
-
-        if (!target.TryGetModifier<DeathHandlerModifier>(out var deathHandler)) yield break;
-        
-        var cod = deathHandler.CauseOfDeath == "Killed" ? "Guessed" : deathHandler.CauseOfDeath;
+        var isMisguess = e.Source.PlayerId == e.Target.PlayerId;
+        var cod = isMisguess ? "Misguessed" : "Guessed";
 
         var title = $"{TownOfExtraColours.ObservantModifierColour.ToTextColor()}Observations</color>";
-        var startTxt =
-            cod == "Misguessed" 
-                ? $"{target.Data.PlayerName} has" 
-                : $"{target.Data.PlayerName} has been";
-        var endTxt = 
-            source.Data.Role is VigilanteRole
+        var startTxt = isMisguess
+            ? $"{e.Target.Data.PlayerName} has"
+            : $"{e.Target.Data.PlayerName} has been";
+        
+        var endTxt =
+            e.Source.Data.Role is VigilanteRole
                 ? $"{TownOfUsColors.Vigilante.ToTextColor()}<b>{cod}</b></color>"
                 : $"<b>{cod}</b>";
         var msg = $"{startTxt} {endTxt}!";
-        
+
         MiscUtils.AddFakeChat(PlayerControl.LocalPlayer.Data, title, msg, false, true);
         PlayerControl.LocalPlayer.RpcSendNotification(
             msg,
             "ObservantModifierIcon",
             "CrewModIcon",
             200
-            );
+        );
 
         if (!HudManager.Instance.Chat.IsOpenOrOpening) HudManager.Instance.Chat.Toggle();
     }

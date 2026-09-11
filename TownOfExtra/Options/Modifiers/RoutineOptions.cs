@@ -1,5 +1,4 @@
 using System;
-using MiraAPI.GameOptions;
 using MiraAPI.GameOptions.OptionTypes;
 using MiraAPI.Utilities;
 using TownOfExtra.Modifiers.Game.Crewmate.Passive;
@@ -10,7 +9,7 @@ namespace TownOfExtra.Options.Modifiers;
 
 public sealed class RoutineOptions : AbstractTouModifierOptionGroup<RoutineModifier>
 {
-    public override Func<bool> GroupVisible => () => OptionGroupSingleton<RoleOptions>.Instance.IsClassicRoleAssignment;
+    public override Func<bool> GroupVisible => () => RoleOptions.IsClassicRoleAssignment;
     public override string GroupName => "Routine";
     public override Color GroupColor => Palette.CrewmateBlue;
     public override uint GroupPriority => 5;

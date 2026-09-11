@@ -1,5 +1,4 @@
 using System;
-using MiraAPI.GameOptions;
 using MiraAPI.GameOptions.OptionTypes;
 using MiraAPI.Utilities;
 using TownOfExtra.Modifiers.Game.Crewmate.Utility;
@@ -10,7 +9,7 @@ namespace TownOfExtra.Options.Modifiers;
 
 public sealed class PanicShieldOptions : AbstractTouModifierOptionGroup<PanicShieldModifier>
 {
-    public override Func<bool> GroupVisible => () => OptionGroupSingleton<RoleOptions>.Instance.IsClassicRoleAssignment;
+    public override Func<bool> GroupVisible => () => RoleOptions.IsClassicRoleAssignment;
     public override string GroupName => "Panic Shield";
     public override Color GroupColor => TownOfExtraColours.PanicShieldModifierColour;
     public override uint GroupPriority => 8;

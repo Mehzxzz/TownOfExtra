@@ -108,7 +108,7 @@ public static class TownOfExtraAssets
     // Roles
 
     public static LoadableAsset<Sprite> ChiefRecruitButton { get; } =
-        new LoadableResourceAsset($"{CrewButtonPath}.ChiefRecruitButton.png");
+        new LoadableResourceAsset($"{CrewButtonPath}.ChiefRecruitButton.png", 400);
     public static LoadableAsset<Sprite> ChiefShootButton { get; } =
         new LoadableResourceAsset($"{CrewButtonPath}.ChiefShootButton.png");
     public static LoadableAsset<Sprite> JournalistInterviewButton { get; } =

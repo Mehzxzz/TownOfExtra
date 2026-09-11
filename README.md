@@ -27,27 +27,18 @@ A client-side [Among Us](https://store.steampowered.com/app/945360/Among_Us) mod
   <a href="https://toex.freehosting.dev/docs#/item/ece7c1cbecc8"><img width="10%" src="https://github.com/Mehzxzz/TownOfExtra/blob/master/TownOfExtra/Resources/Imp/RoleIcons/FreezerRoleIcon.png" /></a>
   <a href="https://toex.freehosting.dev/docs#/item/7962d69c63b7"><img width="10%" src="https://github.com/Mehzxzz/TownOfExtra/blob/master/TownOfExtra/Resources/Imp/RoleIcons/GamblerRoleIcon.png" /></a>
   <a href="https://toex.freehosting.dev/docs#/item/cb041f9b6b95"><img width="10%" src="https://github.com/Mehzxzz/TownOfExtra/blob/master/TownOfExtra/Resources/Imp/RoleIcons/ObstructorRoleIcon.png" /></a>
-  <a href="https://toex.freehosting.dev/docs#/item/767c81dc2d31"><img src="https://github.com/Mehzxzz/TownOfExtra/blob/master/Resources/Headers/ImpConcealing.png" /></a>
-  <a href="https://toex.freehosting.dev/docs#/item/fe82300dfa6b"><img width="10%" src="https://github.com/Mehzxzz/TownOfExtra/blob/master/TownOfExtra/Resources/Imp/RoleIcons/SignalJammerRoleIcon.png" /></a>
-  <a href="https://toex.freehosting.dev/docs#/item/e4cc93c6c7ae"><img width="10%" src="https://github.com/Mehzxzz/TownOfExtra/blob/master/TownOfExtra/Resources/Imp/RoleIcons/HolographerRoleIcon.png" /></a>
   <a href="https://toex.freehosting.dev/docs#/item/6c292b23da25"><img src="https://github.com/Mehzxzz/TownOfExtra/blob/master/Resources/Headers/ImpPower.png" /></a>
   <a href="https://toex.freehosting.dev/docs#/item/6b66455ad565"><img width="10%" src="https://github.com/Mehzxzz/TownOfExtra/blob/master/TownOfExtra/Resources/Imp/RoleIcons/EraserRoleIcon.png" /></a>
   <a href="https://toex.freehosting.dev/docs#/item/4374efe78e22"><img width="10%" src="https://github.com/Mehzxzz/TownOfExtra/blob/master/TownOfExtra/Resources/Imp/RoleIcons/VinculatorRoleIcon.png" /></a>
   <a href="https://toex.freehosting.dev/docs#/item/3f9cbabbb1cd"><img width="10%" src="https://github.com/Mehzxzz/TownOfExtra/blob/master/TownOfExtra/Resources/Imp/RoleIcons/ConjurerRoleIcon.png" /></a>
   <a href="https://toex.freehosting.dev/docs#/item/d40754ef800e"><img src="https://github.com/Mehzxzz/TownOfExtra/blob/master/Resources/Headers/CrewPower.png" /></a>
   <a href="https://toex.freehosting.dev/docs#/item/eb08506dfa13"><img width="10%" src="https://github.com/Mehzxzz/TownOfExtra/blob/master/TownOfExtra/Resources/Crew/RoleIcons/ChiefRoleIcon.png" /></a>
-  <a href="https://toex.freehosting.dev/docs#/item/556349f8da18"><img width="10%" src="https://github.com/Mehzxzz/TownOfExtra/blob/master/TownOfExtra/Resources/Crew/RoleIcons/JournalistRoleIcon.png" /></a>
   <a href="https://toex.freehosting.dev/docs#/item/8d5bc3fbc976"><img src="https://github.com/Mehzxzz/TownOfExtra/blob/master/Resources/Headers/NeutEvil.png" /></a>
-  <a href="https://toex.freehosting.dev/docs#/item/a970d0912c8f"><img width="10%" src="https://github.com/Mehzxzz/TownOfExtra/blob/master/TownOfExtra/Resources/Neut/RoleIcons/TricksterRoleIcon.png" /></a>
-  <a href="https://toex.freehosting.dev/docs#/item/97ecf5bb9658"><img width="10%" src="https://github.com/Mehzxzz/TownOfExtra/blob/master/TownOfExtra/Resources/Neut/RoleIcons/PoltergeistRoleIcon.png" /></a>
   <a href="https://toex.freehosting.dev/docs#/item/2885f599f16c"><img src="https://github.com/Mehzxzz/TownOfExtra/blob/master/Resources/Headers/NeutKilling.png" /></a>
-  <a href="https://toex.freehosting.dev/docs#/item/69aaf8a77abe"><img width="10%" src="https://github.com/Mehzxzz/TownOfExtra/blob/master/TownOfExtra/Resources/Neut/RoleIcons/BarbarianRoleIcon.png" /></a>
   <a href="https://toex.freehosting.dev/docs#/item/081ffc055fe5"><img width="10%" src="https://github.com/Mehzxzz/TownOfExtra/blob/master/TownOfExtra/Resources/Neut/RoleIcons/CannibalRoleIcon.png" /></a>
-  <a href="https://toex.freehosting.dev/docs#/item/ee3331f1b0a1"><img width="10%" src="https://github.com/Mehzxzz/TownOfExtra/blob/master/TownOfExtra/Resources/Neut/RoleIcons/SquidRoleIcon.png" /></a>
-  <a href="https://toex.freehosting.dev/docs#/item/6a3f6a158450"><img width="10%" src="https://github.com/Mehzxzz/TownOfExtra/blob/master/TownOfExtra/Resources/Neut/RoleIcons/ShadowWalkerRoleIcon.png" /></a>
+  <a href="https://toex.freehosting.dev/docs#/item/ee3331f1b0a1"><img width="10%" src="https://github.com/Mehzxzz/TownOfExtra/blob/master/TownOfExtra/Resources/Neut/RoleIcons/ShadowWalkerRoleIcon.png" /></a>
   <a href="https://toex.freehosting.dev/docs#/item/04aef1100b83"><img width="10%" src="https://github.com/Mehzxzz/TownOfExtra/blob/master/TownOfExtra/Resources/Neut/RoleIcons/ClownRoleIcon.png" /></a>
   <a href="https://toex.freehosting.dev/docs#/item/a6bb39fa224c"><img width="10%" src="https://github.com/Mehzxzz/TownOfExtra/blob/master/TownOfExtra/Resources/Neut/RoleIcons/PoisonerRoleIcon.png" /></a>
-  <a href="https://toex.freehosting.dev/docs#/item/e6c1a82f4d90"><img width="10%" src="https://github.com/AU-Avengers/TownOfUs-Mira-Unity/blob/master/Assets/TOU-Mira/Sprites/Icons/Neutral.png" /></a>
   <a href="https://toex.freehosting.dev/docs#/item/dc5757980842"><img src="https://github.com/Mehzxzz/TownOfExtra/blob/master/Resources/Headers/NeutOutlier.png" /></a>
   <a href="https://toex.freehosting.dev/docs#/item/c627230ca4e6"><img width="10%" src="https://github.com/Mehzxzz/TownOfExtra/blob/master/TownOfExtra/Resources/Neut/RoleIcons/ShifterRoleIcon.png" /></a>
   <a href="https://toex.freehosting.dev/docs#/item/eba19bc06afa"><img src="https://github.com/Mehzxzz/TownOfExtra/blob/master/Resources/Headers/CrewMods.png" /></a>
@@ -87,9 +78,9 @@ A client-side [Among Us](https://store.steampowered.com/app/945360/Among_Us) mod
 # Asset Credits
 - [@AtonyGit](https://github.com/AtonyGit)/[Town Of Us: Mira](https://github.com/AU-Avengers/TOU-Mira) - All assets that are not specified below
 - @az0th_19 (discord) - Vinculator | Empower, Chain [Role/Button Icons]
-- @aasteriisken (discord) - Freezer, Switcher, Dream Caster, Eraser, Conjurer, Vulture, Journalist | Heavy Workload | Scare, Possess, Cast, Interview [Role/Modifier/Button Icons]
-- @mystic_haze2 (discord) - Trickster, Shadow Walker, Squid | Observant, Clumsy, Apolitical | Freeze, Conjure, Enshroud [Role/Modifier/Button Icons]
-- @jaydoeswitchcraft (discord) - Gambler, Signal Jammer, Holographer, Chief | Soulless | Locate [Role/Modifier/Button Icons]
+- @aasteriisken (discord) - Freezer, Eraser, Conjurer | Heavy Workload | Scare, Possess, Cast [Role/Modifier/Button Icons]
+- @mystic_haze2 (discord) - Shadow Walker | Clumsy | Enshroud [Role/Modifier/Button Icons]
+- @jaydoeswitchcraft (discord) - Gambler, Chief | Soulless | Locate [Role/Modifier/Button Icons]
 - @superkiller500(NerdCandy) (discord) - Striker | Strike [Role/Button Icons]
 
 -----------------------

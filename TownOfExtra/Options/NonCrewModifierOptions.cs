@@ -12,7 +12,7 @@ namespace TownOfExtra.Options;
 public sealed class NonCrewModifierOptions : AbstractOptionGroup
 {
     public override string GroupName => "Non Crew Modifiers";
-    public override Func<bool> GroupVisible => () => OptionGroupSingleton<RoleOptions>.Instance.IsClassicRoleAssignment;
+    public override Func<bool> GroupVisible => () => RoleOptions.IsClassicRoleAssignment;
     public override Color GroupColor => TownOfUsColors.Neutral;
     public override MenuCategory ParentMenu => MenuCategory.Modifiers;
     public override uint GroupPriority => 2;

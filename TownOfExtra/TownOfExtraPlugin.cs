@@ -7,12 +7,12 @@ using BepInEx.Unity.IL2CPP;
 using HarmonyLib;
 using MiraAPI;
 using MiraAPI.PluginLoading;
+using MiraAPI.Translation;
 using Reactor;
 using Reactor.Networking;
 using Reactor.Networking.Attributes;
 using Reactor.Utilities;
 using TownOfExtra.Patches;
-using TownOfUs.Modules.Localization;
 
 namespace TownOfExtra;
 
@@ -63,24 +63,24 @@ public class TownOfExtraPlugin : BasePlugin, IMiraPlugin
         // Death Messages
         // ------------------------
         
-        TouLocale.TouLocalization[SupportedLangs.English].TryAdd("DiedToPoisoned", "Poisoned");
-        TouLocale.TouLocalization[SupportedLangs.English].TryAdd("DiedToCannibalised", "Cannibalised");
-        TouLocale.TouLocalization[SupportedLangs.English].TryAdd("DiedToShattered", "Shattered");
-        TouLocale.TouLocalization[SupportedLangs.English].TryAdd("DiedToTerminated", "Terminated");
-        TouLocale.TouLocalization[SupportedLangs.English].TryAdd("DiedToUnbound", "Unbound");
-        TouLocale.TouLocalization[SupportedLangs.English].TryAdd("DiedToCrushed", "Crushed");
-        TouLocale.TouLocalization[SupportedLangs.English].TryAdd("DiedToStruck", "Struck");
-        TouLocale.TouLocalization[SupportedLangs.English].TryAdd("DiedToMiscalculated", "Miscalculated");
-        TouLocale.TouLocalization[SupportedLangs.English].TryAdd("DiedToSlain", "Slain");
-        TouLocale.TouLocalization[SupportedLangs.English].TryAdd("DiedToPunished", "Punished");
-        TouLocale.TouLocalization[SupportedLangs.English].TryAdd("DiedToMurdered", "Murdered");
-        TouLocale.TouLocalization[SupportedLangs.English].TryAdd("DiedToPossessed", "Possessed");
+        MiraLocaleManager.Locale[MiraLanguage.English].TryAdd("DiedToPoisoned", "Poisoned");
+        MiraLocaleManager.Locale[MiraLanguage.English].TryAdd("DiedToCannibalised", "Cannibalised");
+        MiraLocaleManager.Locale[MiraLanguage.English].TryAdd("DiedToShattered", "Shattered");
+        MiraLocaleManager.Locale[MiraLanguage.English].TryAdd("DiedToTerminated", "Terminated");
+        MiraLocaleManager.Locale[MiraLanguage.English].TryAdd("DiedToUnbound", "Unbound");
+        MiraLocaleManager.Locale[MiraLanguage.English].TryAdd("DiedToCrushed", "Crushed");
+        MiraLocaleManager.Locale[MiraLanguage.English].TryAdd("DiedToStruck", "Struck");
+        MiraLocaleManager.Locale[MiraLanguage.English].TryAdd("DiedToMiscalculated", "Miscalculated");
+        MiraLocaleManager.Locale[MiraLanguage.English].TryAdd("DiedToSlain", "Slain");
+        MiraLocaleManager.Locale[MiraLanguage.English].TryAdd("DiedToPunished", "Punished");
+        MiraLocaleManager.Locale[MiraLanguage.English].TryAdd("DiedToMurdered", "Murdered");
+        MiraLocaleManager.Locale[MiraLanguage.English].TryAdd("DiedToPossessed", "Possessed");
 
         // ------------------------
         // Wiki Edits
         // ------------------------
         
-        TouLocale.TouLocalization[SupportedLangs.English]
+        MiraLocaleManager.Locale[MiraLanguage.English]
                 ["TouRoleClericCleanseWikiDescription"] =
             "Remove all negative effects on a player. (Douse, Hack, Infect, Blackmail, Blind, Flash, Hypnosis, Poisoned, Pending Shift, Doom, Scared, Possessed, Pending Erase, Slipped, Shockwaved)";
         
@@ -88,14 +88,14 @@ public class TownOfExtraPlugin : BasePlugin, IMiraPlugin
         // Doomsayer Hints
         // ------------------------
         
-        TouLocale.TouLocalization[SupportedLangs.English].TryAdd("TouRoleDoomsayerRoleHint101", "You observe that %player% is not from this town");
-        TouLocale.TouLocalization[SupportedLangs.English].TryAdd("TouRoleDoomsayerRoleHint102", "You observe that %player% has an altered perception of reality");
-        TouLocale.TouLocalization[SupportedLangs.English].TryAdd("TouRoleDoomsayerRoleHint103", "You observe that %player% has an insight for private information");
-        TouLocale.TouLocalization[SupportedLangs.English].TryAdd("TouRoleDoomsayerRoleHint104", "You observe that %player% has an unusual obsession with dead bodies");
-        TouLocale.TouLocalization[SupportedLangs.English].TryAdd("TouRoleDoomsayerRoleHint105", "You observe that %player% is well-trained in hunting down prey");
-        TouLocale.TouLocalization[SupportedLangs.English].TryAdd("TouRoleDoomsayerRoleHint106", "You observe that %player% spreads fear amongst the group");
-        TouLocale.TouLocalization[SupportedLangs.English].TryAdd("TouRoleDoomsayerRoleHint107", "You observe that %player% hides to guard themselves or others");
-        TouLocale.TouLocalization[SupportedLangs.English].TryAdd("TouRoleDoomsayerRoleHint108", "You observe that %player% has a trick up their sleeve");
-        TouLocale.TouLocalization[SupportedLangs.English].TryAdd("TouRoleDoomsayerRoleHint109", "You observe that %player% is capable of performing relentless attacks");
+        MiraLocaleManager.Locale[MiraLanguage.English].TryAdd("TouRoleDoomsayerRoleHint101", "You observe that %player% is not from this town");
+        MiraLocaleManager.Locale[MiraLanguage.English].TryAdd("TouRoleDoomsayerRoleHint102", "You observe that %player% has an altered perception of reality");
+        MiraLocaleManager.Locale[MiraLanguage.English].TryAdd("TouRoleDoomsayerRoleHint103", "You observe that %player% has an insight for private information");
+        MiraLocaleManager.Locale[MiraLanguage.English].TryAdd("TouRoleDoomsayerRoleHint104", "You observe that %player% has an unusual obsession with dead bodies");
+        MiraLocaleManager.Locale[MiraLanguage.English].TryAdd("TouRoleDoomsayerRoleHint105", "You observe that %player% is well-trained in hunting down prey");
+        MiraLocaleManager.Locale[MiraLanguage.English].TryAdd("TouRoleDoomsayerRoleHint106", "You observe that %player% spreads fear amongst the group");
+        MiraLocaleManager.Locale[MiraLanguage.English].TryAdd("TouRoleDoomsayerRoleHint107", "You observe that %player% hides to guard themselves or others");
+        MiraLocaleManager.Locale[MiraLanguage.English].TryAdd("TouRoleDoomsayerRoleHint108", "You observe that %player% has a trick up their sleeve");
+        MiraLocaleManager.Locale[MiraLanguage.English].TryAdd("TouRoleDoomsayerRoleHint109", "You observe that %player% is capable of performing relentless attacks");
     }
 }

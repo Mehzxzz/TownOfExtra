@@ -10,7 +10,7 @@ namespace TownOfExtra.Options.Modifiers;
 
 public sealed class ShockwaveOptions : AbstractTouModifierOptionGroup<ShockwaveModifier>
 {
-    public override Func<bool> GroupVisible => () => OptionGroupSingleton<RoleOptions>.Instance.IsClassicRoleAssignment;
+    public override Func<bool> GroupVisible => () => RoleOptions.IsClassicRoleAssignment;
     public override string GroupName => "Shockwave";
     public override Color GroupColor => TownOfExtraColours.ShockwaveModifierColour;
     public override uint GroupPriority => 10;

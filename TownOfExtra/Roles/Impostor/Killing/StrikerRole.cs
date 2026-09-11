@@ -87,7 +87,7 @@ public sealed class StrikerRole : ImpostorRole, ITownOfUsRole, IWikiDiscoverable
         if (Player.AmOwner)
         {
             _meetingMenu.Dispose();
-            _meetingMenu = null!;
+            _meetingMenu = null;
         }
     }
 
@@ -110,7 +110,7 @@ public sealed class StrikerRole : ImpostorRole, ITownOfUsRole, IWikiDiscoverable
     
     public void OnClick(PlayerVoteArea voteArea, MeetingHud meeting)
     {
-        var target = GameData.Instance.GetPlayerById(voteArea.TargetPlayerId).Object;
+        var target = GameData.Instance.GetPlayerById(voteArea.PlayerId).Object;
 
         if (UsesLeft > 0)
         {
@@ -171,7 +171,7 @@ public sealed class StrikerRole : ImpostorRole, ITownOfUsRole, IWikiDiscoverable
 
     public bool IsExempt(PlayerVoteArea voteArea)
     {
-        if (voteArea.AmDead || voteArea.TargetPlayerId == Player.PlayerId) return true;
+        if (voteArea.AmDead || voteArea.PlayerId == Player.PlayerId) return true;
 
         var target = voteArea.GetPlayer();
         if (target == null) return true;

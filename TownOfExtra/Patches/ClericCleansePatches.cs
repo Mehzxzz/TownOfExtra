@@ -27,8 +27,6 @@ public static class ClericCleansePatches
         Remover<PendingEraseModifier>(),
         // shifter
         Remover<WaitingOnShiftModifier>(),
-        // squid
-        Remover<SlippedModifier>(),
         // shockwaved
         Remover<ShockwavedModifier>()
     ];

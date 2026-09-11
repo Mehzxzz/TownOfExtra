@@ -79,7 +79,8 @@ public sealed class ChiefRecruitButton : TownOfUsRoleButton<ChiefRole, PlayerCon
             PlayerControl.LocalPlayer.RpcSendNotification(
                 $"{Palette.ImpostorRed.ToTextColor()}There is already a {TownOfUsColors.Sheriff.ToTextColor()}sheriff</color> {Palette.ImpostorRed.ToTextColor()}in the game!",
                 "ChiefRecruitButton",
-                "CrewButton"
+                "CrewButton",
+                400
             );
 
             if (MaxUses != 0)
@@ -97,7 +98,8 @@ public sealed class ChiefRecruitButton : TownOfUsRoleButton<ChiefRole, PlayerCon
         PlayerControl.LocalPlayer.RpcSendNotification(
             $"{Recruit.Data.PlayerName} will be {TownOfExtraColours.ChiefRoleColour.ToTextColor()}recruited</color> in 3 seconds!",
             "ChiefRecruitButton",
-            "CrewButton"
+            "CrewButton",
+            400
         );
     }
 
@@ -125,7 +127,8 @@ public sealed class ChiefRecruitButton : TownOfUsRoleButton<ChiefRole, PlayerCon
                 PlayerControl.LocalPlayer.RpcSendNotification(
                     $"{Palette.ImpostorRed.ToTextColor()}Your recruit is no longer alive. Your charge has been refunded!</color>",
                     "ChiefRecruitButton",
-                    "CrewButton"
+                    "CrewButton",
+                    400
                 );
             }
             else
@@ -133,7 +136,8 @@ public sealed class ChiefRecruitButton : TownOfUsRoleButton<ChiefRole, PlayerCon
                 PlayerControl.LocalPlayer.RpcSendNotification(
                     $"{Palette.ImpostorRed.ToTextColor()}Your recruit is no longer alive!</color>",
                     "ChiefRecruitButton",
-                    "CrewButton"
+                    "CrewButton",
+                    400
                 );
             }
 
@@ -150,7 +154,8 @@ public sealed class ChiefRecruitButton : TownOfUsRoleButton<ChiefRole, PlayerCon
                 $"You have been recruited by the {TownOfExtraColours.ChiefRoleColour.ToTextColor()}chief</color>, you are now a {TownOfUsColors.Sheriff.ToTextColor()}sheriff</color>!",
                 "ChiefRecruitButton",
                 "CrewButton",
-                flashColour: TownOfUsColors.Sheriff
+                400,
+                TownOfUsColors.Sheriff
             );
 
             if (PlayerControl.LocalPlayer.HasModifier<EgotistModifier>() &&
@@ -161,7 +166,8 @@ public sealed class ChiefRecruitButton : TownOfUsRoleButton<ChiefRole, PlayerCon
                 Recruit.RpcSendNotification(
                     $"You feel a {TownOfUsColors.Egotist.ToTextColor()}dark presence</color> taking over... You are now an {TownOfUsColors.Egotist.ToTextColor()}egotist</color>.",
                     "ChiefRecruitButton",
-                    "CrewButton"
+                    "CrewButton",
+                    400
                 );
             }
         }
@@ -169,7 +175,8 @@ public sealed class ChiefRecruitButton : TownOfUsRoleButton<ChiefRole, PlayerCon
         PlayerControl.LocalPlayer.RpcSendNotification(
             $"You have recruited {Recruit.Data.PlayerName} and they are now a {TownOfUsColors.Sheriff.ToTextColor()}sheriff</color>!",
             "ChiefRecruitButton",
-            "CrewButton"
+            "CrewButton",
+            400
         );
         
         //todo: PlayerControl.LocalPlayer.RpcAwardAchievement(AApi.GetInstance()?.ChiefUseRecruit);

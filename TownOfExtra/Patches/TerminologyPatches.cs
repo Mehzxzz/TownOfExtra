@@ -1,15 +1,12 @@
 ﻿using System.Collections.Generic;
 using HarmonyLib;
 using MiraAPI.Modifiers;
+using MiraAPI.Translation;
 using TownOfExtra.Modifiers.Excluded;
 using TownOfExtra.Roles.Crewmate.Power;
-using TownOfExtra.Roles.Crewmate.Investigative;
 using TownOfExtra.Roles.Impostor.Killing;
 using TownOfExtra.Roles.Impostor.Power;
-using TownOfExtra.Roles.Neutral.Evil;
-using TownOfExtra.Roles.Neutral.Killing;
 using TownOfExtra.Roles.Neutral.Outlier;
-using TownOfUs.Modules.Localization;
 using TownOfUs.Modules.Wiki;
 using TownOfUs.Utilities;
 using UnityEngine;
@@ -31,14 +28,10 @@ internal static class TerminologyIconRegistry
 
     internal static void RegisterIcons()
     {
-        Register(new ScaredIcon());
-        Register(new PossessedIcon());
         Register(new ErasedIcon());
         Register(new PendingSwitchIcon());
         Register(new TaggedIcon());
         Register(new RecruitedIcon());
-        Register(new InterviewingIcon());
-        Register(new BarbarianTargetIcon());
     }
 
     internal static void AppendIcons(ref string result, PlayerControl row)
@@ -68,22 +61,6 @@ internal static class TerminologyIconRegistry
 
         return null;
     }
-}
-
-internal sealed class ScaredIcon : ITerminologyIcon
-{
-    public string RichChunk => $"{TownOfExtraColours.PoltergeistRoleColour.ToTextColor()}⌇</color>";
-    public bool ShouldShow(PlayerControl local, PlayerControl row) =>
-        row.HasModifier<ScaredModifier>() &&
-        (local.GetTownOfUsRole() is PoltergeistRole || local.Data.IsDead);
-}
-
-internal sealed class PossessedIcon : ITerminologyIcon
-{
-    public string RichChunk => $"{TownOfExtraColours.PossessedColour.ToTextColor()}유</color>";
-    public bool ShouldShow(PlayerControl local, PlayerControl row) =>
-        row.HasModifier<PossessedModifier>() &&
-        (local.GetTownOfUsRole() is PoltergeistRole || local.Data.IsDead);
 }
 
 internal sealed class ErasedIcon : ITerminologyIcon
@@ -116,22 +93,6 @@ internal sealed class RecruitedIcon : ITerminologyIcon
     public bool ShouldShow(PlayerControl local, PlayerControl row) =>
         ChiefRole.Recruits.Contains(row) &&
         (local.GetTownOfUsRole() is ChiefRole || local.Data.IsDead);
-}
-
-internal sealed class InterviewingIcon : ITerminologyIcon
-{
-    public string RichChunk => $"{TownOfExtraColours.JournalistRoleColour.ToTextColor()}ⓘ</color>";
-    public bool ShouldShow(PlayerControl local, PlayerControl row) =>
-        row.HasModifier<InterviewModifier>() &&
-        (local.GetTownOfUsRole() is JournalistRole || local.Data.IsDead);
-}
-
-internal sealed class BarbarianTargetIcon : ITerminologyIcon
-{
-    public string RichChunk => $"{TownOfExtraColours.BarbarianRoleColour.ToTextColor()}⌘</color>";
-    public bool ShouldShow(PlayerControl local, PlayerControl row) =>
-        row.HasModifier<BarbarianTargetModifier>() &&
-        (local.GetTownOfUsRole() is BarbarianRole || local.Data.IsDead);
 }
 
 [HarmonyPatch(typeof(PlayerRoleTextExtensions), nameof(PlayerRoleTextExtensions.UpdateTargetSymbols), new[] { typeof(string), typeof(PlayerControl), typeof(bool) })]
@@ -179,8 +140,8 @@ public static class TerminologyPatches
 {
     public static void RegisterToExTerms()
     {
-        TouLocale.TouLocalization[SupportedLangs.English].TryAdd("ToExTermsTitle", "ToEx Symbols");
-        TouLocale.TouLocalization[SupportedLangs.English].TryAdd("ToExTermsDesc",
+        MiraLocaleManager.Locale[MiraLanguage.English].TryAdd("ToExTermsTitle", "ToEx Symbols");
+        MiraLocaleManager.Locale[MiraLanguage.English].TryAdd("ToExTermsDesc",
             "These symbols are the custom symbols from Town of Extra. " +
             $"• Scared players are marked with <b>{TownOfExtraColours.PoltergeistRoleColour.ToTextColor()}유</color></b>\n" +
             $"• Possessed players are marked with <b>{TownOfExtraColours.PossessedColour.ToTextColor()}유</color></b>\n" +
