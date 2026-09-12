@@ -82,7 +82,7 @@ public class TownOfExtraPlugin : BasePlugin, IMiraPlugin
         
         MiraLocaleManager.Locale[MiraLanguage.English]
                 ["TouRoleClericCleanseWikiDescription"] =
-            "Remove all negative effects on a player. (Douse, Hack, Infect, Blackmail, Blind, Flash, Hypnosis, Poisoned, Pending Shift, Doom, Scared, Possessed, Pending Erase, Slipped, Shockwaved)";
+            "Remove all negative effects on a player. (Douse, Hack, Infect, Blackmail, Blind, Flash, Hypnosis, Poisoned, Pending Shift, Doom, Pending Erase, Shockwaved)";
         
         // ------------------------
         // Doomsayer Hints

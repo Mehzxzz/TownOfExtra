@@ -20,9 +20,6 @@ public static class ClericCleansePatches
         Remover<PoisonedModifier>(),
         Remover<WaitingOnShiftModifier>(),
         Remover<ImpendingDoomModifier>(),
-        // poltergeist
-        Remover<ScaredModifier>(),
-        Remover<PossessedModifier>(),
         // eraser
         Remover<PendingEraseModifier>(),
         // shifter
