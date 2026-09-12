@@ -485,7 +485,7 @@
       ]
     },
     {
-      "Date": "2026-08-08T14:30:00Z",
+      "Date": "2026-09-12T11:00:00Z",
       "Number": "126",
       "ShortTitle": "TownOfExtra v1.2.6",
       "Title": "TownOfExtra v1.2.6",
@@ -494,8 +494,13 @@
         "\r<b>TownOfExtra has updated to v1.2.6</b>",
         "\n\nThank you for playing the mod!",
         "\n\n★ <link=https://discord.gg/y2GN5Q4fzb>Join Discord</link> ★ <link=https://toex.freehosting.dev/docs>Role/Modifier Info</link> ★",
+        "\n\n\r<size=105%>New Roles:</size>",
+        "\n- A new Neutral Killing role has been added: Vulture",
+        "\n<size=90%>A reworked version of the previously removed vulture role</size>",
         "\n\n\r<size=105%>Changes:</size>",
         "\n- Removed a lot of boring/useless roles, these will be revamped and re-added in a future update",
+        "\n- Updated impostor modifier's icons to use the impostor colour",
+        "\n- Scourge is now an assailant modifier",
         "\n\n\r<size=105%>Bugfixes:</size>",
         "\n- Fixed the size of chief's recruit button"
       ]
