@@ -10,7 +10,7 @@ namespace TownOfExtra.Modifiers.Gambler;
 
 public class TeleportBackModifier : BaseModifier
 {
-    public override string ModifierName => "Gambler Ability";
+    public override string ModifierName => "(Ability) Tp Back";
     public override LoadableAsset<Sprite> ModifierIcon => TownOfExtraAssets.GamblerRoleIcon;
     public override bool HideOnUi => false;
     public override Color FreeplayFileColor => Palette.ImpostorRoleHeaderDarkRed;

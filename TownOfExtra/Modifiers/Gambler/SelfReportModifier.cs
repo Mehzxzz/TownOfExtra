@@ -6,7 +6,7 @@ namespace TownOfExtra.Modifiers.Gambler;
 
 public class SelfReportModifier : BaseModifier
 {
-    public override string ModifierName => "Gambler Ability";
+    public override string ModifierName => "(Ability) Self Report";
     public override LoadableAsset<Sprite> ModifierIcon => TownOfExtraAssets.GamblerRoleIcon;
     public override bool HideOnUi => false;
     public override Color FreeplayFileColor => Palette.ImpostorRoleHeaderDarkRed;
