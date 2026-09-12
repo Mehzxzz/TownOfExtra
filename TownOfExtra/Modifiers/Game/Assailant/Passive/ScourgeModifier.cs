@@ -10,12 +10,12 @@ using TownOfUs.Roles.Neutral;
 using TownOfUs.Utilities;
 using UnityEngine;
 
-namespace TownOfExtra.Modifiers.Game.Non_Crew.Passive;
+namespace TownOfExtra.Modifiers.Game.Assailant.Passive;
 
 public class ScourgeModifier : TouGameModifier, IWikiDiscoverable, IColoredModifier
 {
     public override string ModifierName => "Scourge";
-    public override ModifierFaction FactionType => ModifierFaction.UniversalPassive;
+    public override ModifierFaction FactionType => ModifierFaction.AssailantPassive;
     public override string IntroInfo => "The crew can't task win while you're alive";
     public override LoadableAsset<Sprite> ModifierIcon => TownOfExtraAssets.ScourgeModifierIcon;
     public Color ModifierColor => TownOfExtraColours.ScourgeModifierColour;

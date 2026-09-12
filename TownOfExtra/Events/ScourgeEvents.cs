@@ -2,7 +2,7 @@
 using MiraAPI.Events.Vanilla.Gameplay;
 using MiraAPI.Modifiers;
 using System.Linq;
-using TownOfExtra.Modifiers.Game.Non_Crew.Passive;
+using TownOfExtra.Modifiers.Game.Assailant.Passive;
 
 namespace TownOfExtra.Events;
 

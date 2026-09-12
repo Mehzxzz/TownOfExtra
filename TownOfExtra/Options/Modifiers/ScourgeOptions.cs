@@ -1,5 +1,5 @@
 using System;
-using TownOfExtra.Modifiers.Game.Non_Crew.Passive;
+using TownOfExtra.Modifiers.Game.Assailant.Passive;
 using TownOfUs.Options;
 using UnityEngine;
 

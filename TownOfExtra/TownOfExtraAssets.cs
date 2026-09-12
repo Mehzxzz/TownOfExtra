@@ -45,9 +45,9 @@ public static class TownOfExtraAssets
     public static string UniModButtonPath { get; } = "TownOfExtra.Resources.Modifiers.Uni.Buttons";
     public static string UniModMiscPath { get; } = "TownOfExtra.Resources.Modifiers.Uni.Misc";
     
-    public static string NonCrewModModIconPath { get; } = "TownOfExtra.Resources.Modifiers.NonCrew.ModifierIcons";
-    public static string NonCrewModButtonPath { get; } = "TownOfExtra.Resources.Modifiers.NonCrew.Buttons";
-    public static string NonCrewModMiscPath { get; } = "TownOfExtra.Resources.Modifiers.NonCrew.Misc";
+    public static string AssailantModModIconPath { get; } = "TownOfExtra.Resources.Modifiers.Assailant.ModifierIcons";
+    public static string AssailantModButtonPath { get; } = "TownOfExtra.Resources.Modifiers.Assailant.Buttons";
+    public static string AssailantModMiscPath { get; } = "TownOfExtra.Resources.Modifiers.Assailant.Misc";
 
     // ---- General Misc Path ----
     public static string MiscPath { get; } = "TownOfExtra.Resources.Misc";
@@ -321,14 +321,14 @@ public static class TownOfExtraAssets
     
     
     // ===============================================================
-    //                         NON CREW
+    //                          ASSAILANT
     // ===============================================================
 
     // --- Modifiers ---
 
     // Passive
     public static LoadableAsset<Sprite> ScourgeModifierIcon { get; } =
-        new LoadableResourceAsset($"{NonCrewModModIconPath}.ScourgeRoleIcon.png");
+        new LoadableResourceAsset($"{AssailantModModIconPath}.ScourgeRoleIcon.png");
     
 
 
